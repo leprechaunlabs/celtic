@@ -88,3 +88,5 @@ function modal(data) {
 </div>'
     return modalString;
 };
+
+console.log(window.DC.fullName);
