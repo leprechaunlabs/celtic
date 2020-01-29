@@ -89,4 +89,4 @@ function modal(data) {
     return modalString;
 };
 
-console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0]);
+console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0].innerText);
