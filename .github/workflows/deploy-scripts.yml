@@ -1,0 +1,28 @@
+name: Deploy JavaScript Functions
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    deploy_global_js:
+        name: Deploy JavaScript Functions
+        runs-on: ubuntu-latest
+        env:
+            DO_SPACE: ${{ secrets.DO_SPACE }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.DO_ACCESS_KEY }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.DO_ACCESS_SECRET }}
+        
+        steps:
+        - uses: actions/checkout@v2
+        
+        - name: Upload Global JS
+          env:
+            FILE: global.js
+          run: aws s3 cp ${FILE} s3://${DO_SPACE}/scripts/ --endpoint=https://sfo2.digitaloceanspaces.com --acl public-read
+
+        - name: Upload Job Page Detail JS
+          env:
+            FILE: order_page.js
+          run: aws s3 cp ${FILE} s3://${DO_SPACE}/scripts/ --endpoint=https://sfo2.digitaloceanspaces.com --acl public-read
