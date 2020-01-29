@@ -1,7 +1,7 @@
 
 window.addEventListener("load", function () {
     $("#orderStatusDisplayID").empty();
-    $.getJSON(corsHerokuURL+netsuiteURL, getQueryVariable("job-number"), function (success, textStatus, jqXHR) {
+    $.getJSON(corsHerokuURL+netsuiteURL, {"jobNumber":getQueryVariable("job-number")}, function (success, textStatus, jqXHR) {
         console.log(success);
         console.log(textStatus);
         console.log(jqXHR);
