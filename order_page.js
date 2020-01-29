@@ -31,11 +31,11 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>JOB NUMBER:<b> '+ jobNumber + '</b></li>\
+                        <li>JOB NUMBER:</li>\
                         <li>TRANSACTION NUMBER</li>\
                         <li>PO NUMBER</li>\
                         <li>ORDER DATE</li>\
-                        <li>CUSTOMER: <b> '+ data.Name + ' ' + data.Last + '</b></li>\
+                        <li>CUSTOMER:</li>\
                         </ul>\
                     </div>\
                 </div>\

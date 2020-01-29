@@ -88,7 +88,3 @@ function modal(data) {
 </div>'
     return modalString;
 };
-
-console.log('This is a second version test of the Production update for version 1.0.2');
-
-console.log('Test: horacio 1.0.3');
