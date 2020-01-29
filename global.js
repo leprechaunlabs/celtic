@@ -91,4 +91,4 @@ function modal(data) {
 
 console.log('This is a second version test of the Production update for version 1.0.2');
 
-console.log('horacio 1.0.3');
+console.log('Test: horacio 1.0.3');
