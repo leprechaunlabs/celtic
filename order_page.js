@@ -1,10 +1,10 @@
 
 window.addEventListener("load", function () {
     $("#orderStatusDisplayID").empty();
-    $.getJSON(corsHerokuURL+netsuiteURL, {"jobNumber":getQueryVariable("job-number")}, function (success, textStatus, jqXHR) {
-        console.log(success);
+    $.getJSON(corsHerokuURL+netsuiteURL, {"jobNumber":getQueryVariable("job-number")}, function (data, textStatus, jqXHR) {
+        console.log(data);
         //console.log(textStatus);
-        var appending = [appendOrderNumbers(success), appendCostSummary(success), appendShippingInformation(success), appendImprintInformation(success), appendItemInformation(success)];
+        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendImprintInformation(data), appendItemInformation(data)];
         appending.forEach(element => $("#orderStatusDisplayID").append(element));
     });   
 });
@@ -30,11 +30,10 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
+                        <li>CUSTOMER:<p>'+data.message[0].customer+'</p></li>\
                         <li>JOB NUMBER:<p>'+data.message[0].job_number+'</p></li>\
-                        <li>TRANSACTION NUMBER<p>'+data.message[0].po_number+'</p></li>\
-                        <li>PO NUMBER</li>\
-                        <li>ORDER DATE</li>\
-                        <li>CUSTOMER:</li>\
+                        <li>PO NUMBER<p>'+data.message[0].po_number+'</p></li>\
+                        <li>ORDER DATE<p>'+data.message[0].order_date+'</p></li>\
                         </ul>\
                     </div>\
                 </div>\
@@ -71,7 +70,7 @@ function appendCostSummary(data) {
     return card;
 };
 
-function appendShippingInformation() {
+function appendShippingInformation(data) {
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Shipping Information</div>\
