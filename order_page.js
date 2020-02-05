@@ -30,10 +30,10 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>CUSTOMER:<p>'+data.message[0].customer+'</p></li>\
-                        <li>JOB NUMBER:<p>'+data.message[0].job_number+'</p></li>\
-                        <li>PO NUMBER<p>'+data.message[0].po_number+'</p></li>\
-                        <li>ORDER DATE<p>'+data.message[0].order_date+'</p></li>\
+                        <li>CUSTOMER:<p>'+data.data[0].customer+'</p></li>\
+                        <li>JOB NUMBER:<p>'+data.data[0].job_number+'</p></li>\
+                        <li>PO NUMBER<p>'+data.data[0].po_number+'</p></li>\
+                        <li>ORDER DATE<p>'+data.data[0].order_date+'</p></li>\
                         </ul>\
                     </div>\
                 </div>\
@@ -81,16 +81,12 @@ function appendShippingInformation(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>SHIP TO:</li>\
-                        <li>SHIPPING CARRIER</li>\
-                        <li>SHIPPING METHOD</li>\
-                        <li>SHIP DATE</li>\
-                        <li>SCHEDULED ARRIVAL DATE</li>\
-                            <li>CHARGE SHIPPING TO:</li>\
-                            <li>RECIPIENT SHIPPING</li>\
-                            <li>CUSTOMER SHIPPING</li>\
-                            <li>ESTIMATED SHIPPING COST</li>\
-                            <li>TOTAL LESS SHIPPING & HANDLING COST</li>\
+                        <li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>\
+                        <li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>\
+                        <li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>\
+                        <li>SHIP DATE<p>'+data.data[0].shipping_date+'</p></li>\
+                        <li>SCHEDULED ARRIVAL DATE<p>'+data.data[0].shipping_arrival_date+'</p></li>\
+                        <li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
                     </div>\
                 </div>\
             </div>\
