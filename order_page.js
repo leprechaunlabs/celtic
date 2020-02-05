@@ -30,8 +30,8 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>JOB NUMBER:<p>'+data.context.message[0].job_number+'</p></li>\
-                        <li>TRANSACTION NUMBER<p>'+data.context.message[0].po_number+'</p></li>\
+                        <li>JOB NUMBER:<p>'+data.message[0].job_number+'</p></li>\
+                        <li>TRANSACTION NUMBER<p>'+data.message[0].po_number+'</p></li>\
                         <li>PO NUMBER</li>\
                         <li>ORDER DATE</li>\
                         <li>CUSTOMER:</li>\
