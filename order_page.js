@@ -55,11 +55,11 @@ function appendCostSummary(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>SUBTOTAL</li>\
-            			<li>TAX TOTAL</li>\
-            			<li>ESTIMATED SHIPPING COST</li>\
-           				<li>HANDLING COST</li>\
-            			<li>TOTAL</li>\
+                        <li>SUBTOTAL<p>'+data.data[0].subtotal+'</p></li>\
+            			<li>TAX TOTAL<p>'+data.data[0].tax_total+'</p></li>\
+            			<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
+           				<li>HANDLING COST<p>'+data.data[0].handling_cost+'</p></li>\
+            			<li>TOTAL<p>'+data.data[0].total+'</p></li>\
                         </ul>\
                     </div>\
                 </div>\
