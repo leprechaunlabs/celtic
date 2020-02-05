@@ -25,7 +25,7 @@ function jobNumberOBJ() {
         jobNumber: document.getElementById("input-job-number").value
     } ;
     return jobNumber;
-};
+}; 
 
 function buildOrderStatusURL(jobNumber) {
     var builtURL = "https://www.distributorcentral.com/preview/DD6F3DD9-FD1B-4041-80EE-A1B8342A5240/p/order-status?jobNumber=" + jobNumber;
