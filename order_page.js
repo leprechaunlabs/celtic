@@ -19,7 +19,7 @@ function getQueryVariable(variable) {
     return (false);
 }
 
-function appendOrderNumbers(data) {
+function appendOrderNumbers(thisData) {
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Order Numbers</div>\
@@ -30,10 +30,10 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>CUSTOMER:<p>'+data.data[0].customer+'</p></li>\
-                        <li>JOB NUMBER:<p>'+data.data[0].job_number+'</p></li>\
-                        <li>PO NUMBER<p>'+data.data[0].po_number+'</p></li>\
-                        <li>ORDER DATE<p>'+data.data[0].order_date+'</p></li>\
+                        <li>CUSTOMER:<p>'+thisData.data[0].customer+'</p></li>\
+                        <li>JOB NUMBER:<p>'+thisData.data[0].job_number+'</p></li>\
+                        <li>PO NUMBER<p>'+thisData.data[0].po_number+'</p></li>\
+                        <li>ORDER DATE<p>'+thisData.data[0].order_date+'</p></li>\
                         </ul>\
                     </div>\
                 </div>\
@@ -44,7 +44,7 @@ function appendOrderNumbers(data) {
     return card;
 };
 
-function appendCostSummary(data) {
+function appendCostSummary(thisData) {
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Cost Summary</div>\
@@ -55,11 +55,11 @@ function appendCostSummary(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>SUBTOTAL<p>'+data.data[0].subtotal+'</p></li>\
-            			<li>TAX TOTAL<p>'+data.data[0].tax_total+'</p></li>\
-            			<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
-           				<li>HANDLING COST<p>'+data.data[0].handling_cost+'</p></li>\
-            			<li>TOTAL<p>'+data.data[0].total+'</p></li>\
+                        <li>SUBTOTAL<p>'+thisData.data[0].subtotal+'</p></li>\
+            			<li>TAX TOTAL<p>'+thisData.data[0].tax_total+'</p></li>\
+            			<li>ESTIMATED SHIPPING COST<p>'+thisData.data[0].estimated_shipping_cost+'</p></li>\
+           				<li>HANDLING COST<p>'+thisData.data[0].handling_cost+'</p></li>\
+            			<li>TOTAL<p>'+thisData.data[0].total+'</p></li>\
                         </ul>\
                     </div>\
                 </div>\
@@ -70,7 +70,7 @@ function appendCostSummary(data) {
     return card;
 };
 
-function appendShippingInformation(data) {
+function appendShippingInformation(thisData) {
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Shipping Information</div>\
@@ -81,12 +81,12 @@ function appendShippingInformation(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>\
-                        <li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>\
-                        <li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>\
-                        <li>SHIP DATE<p>'+data.data[0].shipping_date+'</p></li>\
-                        <li>SCHEDULED ARRIVAL DATE<p>'+data.data[0].shipping_arrival_date+'</p></li>\
-                        <li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
+                        <li>SHIP TO:<p>'+thisData.data[0].ship_to+'</p></li>\
+                        <li>SHIPPING CARRIER<p>'+thisData.data[0].shipping_carrier+'</p></li>\
+                        <li>SHIPPING METHOD<p>'+thisData.data[0].shipping_method+'</p></li>\
+                        <li>SHIP DATE<p>'+thisData.data[0].shipping_date+'</p></li>\
+                        <li>SCHEDULED ARRIVAL DATE<p>'+thisData.data[0].shipping_arrival_date+'</p></li>\
+                        <li>ESTIMATED SHIPPING COST<p>'+thisData.data[0].estimated_shipping_cost+'</p></li>\
                     </div>\
                 </div>\
             </div>\
@@ -96,7 +96,7 @@ function appendShippingInformation(data) {
     return card;
 };
 
-function appendImprintInformation() {
+function appendImprintInformation(thisData) {
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Imprint Information</div>\
@@ -120,7 +120,7 @@ function appendImprintInformation() {
     return card;
 };
 
-function appendItemInformation() {
+function appendItemInformation(thisData) {
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Item Information</div>\
