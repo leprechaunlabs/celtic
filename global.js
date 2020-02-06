@@ -21,11 +21,11 @@ document.querySelector("#button-order-status-page").addEventListener("click", fu
 }, false);
 
 function jobNumberOBJ() {
-    let jobNumber={
+    let jobNumber = {
         jobNumber: document.getElementById("input-job-number").value
-    } ;
+    };
     return jobNumber;
-}; 
+};
 
 function buildOrderStatusURL(jobNumber) {
     var builtURL = "https://www.distributorcentral.com/preview/DD6F3DD9-FD1B-4041-80EE-A1B8342A5240/p/order-status?jobNumber=" + jobNumber;
@@ -43,10 +43,10 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>CUSTOMER:<p>'+data.data[0].customer+'</p></li>\
-                        <li>JOB NUMBER:<p>'+data.data[0].job_number+'</p></li>\
-                        <li>PO NUMBER<p>'+data.data[0].po_number+'</p></li>\
-                        <li>ORDER DATE<p>'+data.data[0].order_date+'</p></li>\
+                        <li>CUSTOMER:<p>'+ data.data[0].customer + '</p></li>\
+                        <li>JOB NUMBER:<p>'+ data.data[0].job_number + '</p></li>\
+                        <li>PO NUMBER<p>'+ data.data[0].po_number + '</p></li>\
+                        <li>ORDER DATE<p>'+ data.data[0].order_date + '</p></li>\
                         </ul>\
                     </div>\
                 </div>\
@@ -68,11 +68,11 @@ function appendCostSummary(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">\
-                        <li>SUBTOTAL<p>'+data.data[0].subtotal+'</p></li>\
-            			<li>TAX TOTAL<p>'+data.data[0].tax_total+'</p></li>\
-            			<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
-           				<li>HANDLING COST<p>'+data.data[0].handling_cost+'</p></li>\
-            			<li>TOTAL<p>'+data.data[0].total+'</p></li>\
+                        <li>SUBTOTAL<p>'+ data.data[0].subtotal + '</p></li>\
+            			<li>TAX TOTAL<p>'+ data.data[0].tax_total + '</p></li>\
+            			<li>ESTIMATED SHIPPING COST<p>'+ data.data[0].estimated_shipping_cost + '</p></li>\
+           				<li>HANDLING COST<p>'+ data.data[0].handling_cost + '</p></li>\
+            			<li>TOTAL<p>'+ data.data[0].total + '</p></li>\
                         </ul>\
                     </div>\
                 </div>\
@@ -83,7 +83,40 @@ function appendCostSummary(data) {
     return card;
 };
 
+function valuePresent(field) {
+    if (field == "") {
+        return false;
+    }
+    return true;
+}
+
 function appendShippingInformation(data) {
+    var ship_to;
+    var shipping_carrier;
+    var shipping_method;
+    var ship_date;
+    var arrival_date;
+    var shipping_cost;
+    
+    if (valuePresent(data.data[0].ship_to)) {
+        var ship_to = "<li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>"
+    }
+    if (valuePresent(data.data[0].shipping_carrier)) {
+        var shipping_carrier = "<li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>"
+    }
+    if (valuePresent(data.data[0].shipping_method)) {
+        shipping_method = "<li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>"
+    }
+    if (valuePresent(data.data[0].ship_date)) {
+        ship_date = "<li>SHIP DATE<p>'+data.data[0].ship_date+'</p></li>"
+    }
+    if (valuePresent(data.data[0].scheduled_arrival_date)) {
+        arrival_date = "<li>SHIP DATE<p>'+data.data[0].scheduled_arrival_date+'</p></li>"
+    }
+    if (valuePresent(data.data[0].estimated_shipping_cost)) {
+        shipping_cost = "<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>"
+    }
+     
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Shipping Information</div>\
@@ -93,19 +126,19 @@ function appendShippingInformation(data) {
             <div class="event">\
                 <div class="content">\
                     <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">\
-                        <li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>\
-                        <li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>\
-                        <li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>\
-                        <li>SHIP DATE<p>'+data.data[0].ship_date+'</p></li>\
-                        <li>SCHEDULED ARRIVAL DATE<p>'+data.data[0].scheduled_arrival_date+'</p></li>\
-                        <li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
-    </div>\
-</div>';
+                        <ul class="ui sub header" style="list-style: none;">'
+                         + ship_to
+                         + shipping_carrier
+                         + shipping_method
+                         + ship_date
+                         + arrival_date
+                         + shipping_cost+
+                    '</div >\
+                </div >\
+            </div >\
+        </div >\
+    </div >\
+</div > ';
     return card;
 };
 
