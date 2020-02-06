@@ -2,13 +2,13 @@ var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/sc
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
-    $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (success, textStatus, jqXHR) {
-        console.log(success);
-        console.log(textStatus);
-        console.log(jqXHR);
+    $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
+        console.log(data);
+        //console.log(jqXHR);
         $(".modal").empty();
         document.getElementById('input-job-number').value = "";
-        $(".modal").append(modal(jqXHR));
+        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendImprintInformation(data), appendItemInformation(data)];
+        appending.forEach(element => $(".modal").append(element));
         $('.ui.modal')
             .modal('show');
     });
@@ -32,61 +32,139 @@ function buildOrderStatusURL(jobNumber) {
     return builtURL;
 };
 
-function modal(data) {
-    var modalString =
-        '<i class="close icon"></i>\
-<div class="header">Order Status</div>\
-<ul style="list-style: none;">\
-    <p class="OrderStatusInformation">Order Numbers:</p>\
-    <li>JOB NUMBER</li>\
-    <li>TRANSACTION NUMBER</li>\
-    <li>PO NUMBER</li>\
-    <li>ORDER DATE</li>\
-    <li>CUSTOMER:</li>\
-    <br>\
-    <p class="OrderStatusInformation">Cost Summary</p>\
-    <li>SUBTOTAL</li>\
-    <li>TAX TOTAL</li>\
-    <li>ESTIMATED SHIPPING COST</li>\
-    <li>HANDLING COST</li>\
-    <li>TOTAL</li>\
-    <br>\
-    <p class="OrderStatusInformation">Shipping Information</p>\
-    <li>SHIP TO:</li>\
-    <li>SHIPPING CARRIER</li>\
-    <li>SHIPPING METHOD</li>\
-    <li>SHIP DATE</li>\
-    <li>SCHEDULED ARRIVAL DATE</li>\
-    <li>CHARGE SHIPPING TO:</li>\
-    <li>RECIPIENT SHIPPING</li>\
-    <li>CUSTOMER SHIPPING</li>\
-    <li>ESTIMATED SHIPPING COST</li>\
-    <li>TOTAL LESS SHIPPING & HANDLING COST</li>\
-    <br>\
-    <p class="OrderStatusInformation">Imprint Information</p>\
-    <li>APPROVAL EMAIL</li>\
-    <li>Production Setup</li>\
-    <li>IMPRINT TYPE</li>\
-    <li>IMPRINT SIZING</li>\
-    <li>Special Instructions</li>\
-    <li>PACKING</li>\
-    <br>\
-    <p class="OrderStatusInformation">Item Information</p>\
-    <li>ITEM ORDERED</li>\
-    <li>UNITS</li>\
-    <li>DESCRIPTION</li>\
-    <li>PRICE LEVEL</li>\
-    <li>NET COST</li>\
-    <li>AMOUNT</li>\
-    <li>TAX CODE</li>\
-    <li>TAX RATE</li>\
-    <li>ORDER PRIORITY</li>\
-    <li>PMS COLOR</li>\
-</ul>\
-<div class="actions">\
-    <div class="ui red deny button">Close</div>\
-</div>'
-    return modalString;
+function appendOrderNumbers(data) {
+    var card = '<div class="ui card" style="margin:20px;">\
+    <div class="content">\
+        <div class="header">Order Numbers</div>\
+    </div>\
+    <div class="content">\
+        <div class="ui small feed">\
+            <div class="event">\
+                <div class="content">\
+                    <div class="summary">\
+                        <ul class="ui sub header" style="list-style: none;">\
+                        <li>CUSTOMER:<p>'+data.data[0].customer+'</p></li>\
+                        <li>JOB NUMBER:<p>'+data.data[0].job_number+'</p></li>\
+                        <li>PO NUMBER<p>'+data.data[0].po_number+'</p></li>\
+                        <li>ORDER DATE<p>'+data.data[0].order_date+'</p></li>\
+                        </ul>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>';
+    return card;
 };
+
+function appendCostSummary(data) {
+    var card = '<div class="ui card" style="margin:20px;">\
+    <div class="content">\
+        <div class="header">Cost Summary</div>\
+    </div>\
+    <div class="content">\
+        <div class="ui small feed">\
+            <div class="event">\
+                <div class="content">\
+                    <div class="summary">\
+                        <ul class="ui sub header" style="list-style: none;">\
+                        <li>SUBTOTAL<p>'+data.data[0].subtotal+'</p></li>\
+            			<li>TAX TOTAL<p>'+data.data[0].tax_total+'</p></li>\
+            			<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
+           				<li>HANDLING COST<p>'+data.data[0].handling_cost+'</p></li>\
+            			<li>TOTAL<p>'+data.data[0].total+'</p></li>\
+                        </ul>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>';
+    return card;
+};
+
+function appendShippingInformation(data) {
+    var card = '<div class="ui card" style="margin:20px;">\
+    <div class="content">\
+        <div class="header">Shipping Information</div>\
+    </div>\
+    <div class="content">\
+        <div class="ui small feed">\
+            <div class="event">\
+                <div class="content">\
+                    <div class="summary">\
+                        <ul class="ui sub header" style="list-style: none;">\
+                        <li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>\
+                        <li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>\
+                        <li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>\
+                        <li>SHIP DATE<p>'+data.data[0].ship_date+'</p></li>\
+                        <li>SCHEDULED ARRIVAL DATE<p>'+data.data[0].scheduled_arrival_date+'</p></li>\
+                        <li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>';
+    return card;
+};
+
+function appendImprintInformation(data) {
+    var card = '<div class="ui card" style="margin:20px;">\
+    <div class="content">\
+        <div class="header">Imprint Information</div>\
+    </div>\
+    <div class="content">\
+        <div class="ui small feed">\
+            <div class="event">\
+                <div class="content">\
+                    <div class="summary">\
+                        <ul class="ui sub header" style="list-style: none;">\
+                        <li>APPROVAL EMAIL</li><li>Production Setup</li>\
+                        <li>IMPRINT TYPE</li><li>IMPRINT SIZING</li>\
+                        <li>Special Instructions</li><li>PACKING</li>\
+                        </ul>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>';
+    return card;
+};
+
+function appendItemInformation(data) {
+    var card = '<div class="ui card" style="margin:20px;">\
+    <div class="content">\
+        <div class="header">Item Information</div>\
+    </div>\
+    <div class="content">\
+        <div class="ui small feed">\
+            <div class="event">\
+                <div class="content">\
+                    <div class="summary">\
+                        <ul class="ui sub header" style="list-style: none;">\
+                            <li>JOB NUMBER</li>\
+                            <li>TRANSACTION NUMBER</li>\
+                            <li>PO NUMBER</li>\
+                            <li>ORDER DATE</li>\
+                            <li>CUSTOMER</li>\
+                        </ul>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>';
+    return card;
+};
+
+
+
+
+
+
+
+
 
 console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0].innerText);
