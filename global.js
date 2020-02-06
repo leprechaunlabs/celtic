@@ -84,7 +84,8 @@ function appendCostSummary(data) {
 };
 
 function valuePresent(field) {
-    if (field == "") {
+   var lowerCaseField = field.toLowerCase();
+    if (lowerCaseField == "" || lowerCaseField =="null") {
         return false;
     }
     return true;
