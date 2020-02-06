@@ -82,7 +82,7 @@ function appendCostSummary(data) {
 </div>';
     return card;
 };
-
+//set
 function valuePresent(field) {
    var lowerCaseField = field.toLowerCase();
     if (lowerCaseField == "" || lowerCaseField =="null") {
