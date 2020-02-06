@@ -84,7 +84,7 @@ function appendCostSummary(data) {
 };
 
 function valuePresent(field) {
-    if (field == "" || field =="null") {
+    if (field == "" || field ==null) {
         return false;
     }
     return true;
