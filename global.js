@@ -91,12 +91,12 @@ function valuePresent(field) {
 }
 
 function appendShippingInformation(data) {
-    var ship_to;
-    var shipping_carrier;
-    var shipping_method;
-    var ship_date;
-    var arrival_date;
-    var shipping_cost;
+    var ship_to="";
+    var shipping_carrier="";
+    var shipping_method="";
+    var ship_date="";
+    var arrival_date="";
+    var shipping_cost="";
 
     if (valuePresent(data.data[0].ship_to)) {
         var ship_to = '<li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>'
