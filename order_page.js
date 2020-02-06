@@ -1,7 +1,7 @@
 
 window.addEventListener("load", function () {
     $("#orderStatusDisplayID").empty();
-    $.getJSON(corsHerokuURL+netsuiteURL, {"jobNumber":getQueryVariable("job-number")}, function (data, textStatus, jqXHR) {
+    $.getJSON(corsHerokuURL+netsuiteURL, {"jobNumber":getQueryVariable("jobNumber")}, function (data, textStatus, jqXHR) {
         console.log(data);
         //console.log(textStatus);
         var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendImprintInformation(data), appendItemInformation(data)];
