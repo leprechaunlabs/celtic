@@ -84,8 +84,8 @@ function appendShippingInformation(data) {
                         <li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>\
                         <li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>\
                         <li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>\
-                        <li>SHIP DATE<p>'+data.data[0].shipping_date+'</p></li>\
-                        <li>SCHEDULED ARRIVAL DATE<p>'+data.data[0].shipping_arrival_date+'</p></li>\
+                        <li>SHIP DATE<p>'+data.data[0].ship_date+'</p></li>\
+                        <li>SCHEDULED ARRIVAL DATE<p>'+data.data[0].scheduled_arrival_date+'</p></li>\
                         <li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>\
                     </div>\
                 </div>\
