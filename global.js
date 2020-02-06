@@ -97,24 +97,24 @@ function appendShippingInformation(data) {
     var ship_date;
     var arrival_date;
     var shipping_cost;
-    
+
     if (valuePresent(data.data[0].ship_to)) {
-        var ship_to = "<li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>"
+        var ship_to = '<li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>'
     }
     if (valuePresent(data.data[0].shipping_carrier)) {
-        var shipping_carrier = "<li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>"
+        var shipping_carrier = '<li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>'
     }
     if (valuePresent(data.data[0].shipping_method)) {
-        shipping_method = "<li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>"
+        shipping_method = '<li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>'
     }
     if (valuePresent(data.data[0].ship_date)) {
-        ship_date = "<li>SHIP DATE<p>'+data.data[0].ship_date+'</p></li>"
+        ship_date = '<li>SHIP DATE<p>'+data.data[0].ship_date+'</p></li>'
     }
     if (valuePresent(data.data[0].scheduled_arrival_date)) {
-        arrival_date = "<li>SHIP DATE<p>'+data.data[0].scheduled_arrival_date+'</p></li>"
+        arrival_date = '<li>SHIP DATE<p>'+data.data[0].scheduled_arrival_date+'</p></li>'
     }
     if (valuePresent(data.data[0].estimated_shipping_cost)) {
-        shipping_cost = "<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>"
+        shipping_cost = '<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>'
     }
      
     var card = '<div class="ui card" style="margin:20px;">\
@@ -126,8 +126,7 @@ function appendShippingInformation(data) {
             <div class="event">\
                 <div class="content">\
                     <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">'
-                         + ship_to
+                        <ul class="ui sub header" style="list-style: none;">'+ship_to
                          + shipping_carrier
                          + shipping_method
                          + ship_date
