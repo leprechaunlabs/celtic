@@ -2,6 +2,7 @@ var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/sc
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
+    $(".horizontalCards").empty();
     $(".horizontalCards").append(
         '<div class="ui segment"><div class="ui active slow green double large text loader"></div><br><br><br><br></div>');
         $('.ui.modal')
