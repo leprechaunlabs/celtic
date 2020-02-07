@@ -45,9 +45,9 @@ function appendOrderNumbers(data) {
     var saleseffectivedate = "";
 
     if (valuePresent(data.data[0].entity)) {
-        var str =data.data[0].entity ;
+        var str = data.data[0].entity;
         var pattern = /(^\S+\s)/g;
-        var entityname = str.replace(pattern,"");
+        var entityname = str.replace(pattern, "");
         entity = '<li>entity:<p>' + entityname + '</p></li>'
     }
     if (valuePresent(data.data[0].tranid)) {
@@ -60,7 +60,7 @@ function appendOrderNumbers(data) {
         saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
     var card =
-    '<div class="card">\
+        '<div class="card style="margin-top: 30px;"" >\
         <div class="image">\
             <img src="https://cdn.onlinewebfonts.com/svg/img_226626.png">\
         </div>\
@@ -71,16 +71,16 @@ function appendOrderNumbers(data) {
             </div>\
             <div class="description">\
                 <ul class="ui sub header" style="list-style: none;">'
-                    + entity
-                    + tranid
-                    + otherrefnum
-                    + saleseffectivedate +
-               '</ul>\
+        + entity
+        + tranid
+        + otherrefnum
+        + saleseffectivedate +
+        '</ul>\
             </div>\
         </div>\
     </div>';
     return card;
-    };
+};
 
 function appendCostSummary(data) {
     var subtotal = "";
@@ -105,7 +105,7 @@ function appendCostSummary(data) {
         total = '<li>total<p>' + data.data[0].total + '</p></li>'
     }
     var card =
-    '<div class="card">\
+        '<div class="card" style="margin-top: 30px;">\
         <div class="image">\
             <img src="https://image.flaticon.com/icons/png/512/126/126249.png">\
         </div>\
@@ -116,12 +116,12 @@ function appendCostSummary(data) {
             </div>\
             <div class="description">\
                 <ul class="ui sub header" style="list-style: none;">'
-                + subtotal
-                + taxtotal
-                + shippingcost
-                + handlingcost
-                + total +
-               '</ul>\
+        + subtotal
+        + taxtotal
+        + shippingcost
+        + handlingcost
+        + total +
+        '</ul>\
             </div>\
         </div>\
     </div>';
@@ -158,7 +158,7 @@ function appendShippingInformation(data) {
 
 
     var card =
-    '<div class="card">\
+        '<div class="card" style="margin-top: 30px;">\
         <div class="image">\
             <img src="https://cdn.onlinewebfonts.com/svg/img_412338.png">\
         </div>\
@@ -169,13 +169,13 @@ function appendShippingInformation(data) {
             </div>\
             <div class="description">\
                 <ul class="ui sub header" style="list-style: none;">'
-                + shipaddress
-                + carrier
-                + shipmethod
-                + shipdate
-                + custbody_lp_shipping_arrival_date
-                + shippingcost +
-               '</ul>\
+        + shipaddress
+        + carrier
+        + shipmethod
+        + shipdate
+        + custbody_lp_shipping_arrival_date
+        + shippingcost +
+        '</ul>\
             </div>\
         </div>\
     </div>';
@@ -298,7 +298,7 @@ function appendStatus(data) {
 
 
     var card =
-    '<div class="card">\
+        '<div class="card" style="margin-top: 30px;">\
         <div class="image">\
             <img src="https://cdn.onlinewebfonts.com/svg/img_148079.png">\
         </div>\
@@ -309,23 +309,15 @@ function appendStatus(data) {
             </div>\
             <div class="description">\
                 <ul class="ui sub header" style="list-style: none;">'
-                + custbody_lp_status_stock
-                + custbody_lp_status_artwork_setup
-                + custbody_lp_status_payment
-                + custbody_lp_status_approval_request +
-               '</ul>\
+        + custbody_lp_status_stock
+        + custbody_lp_status_artwork_setup
+        + custbody_lp_status_payment
+        + custbody_lp_status_approval_request +
+        '</ul>\
             </div>\
         </div>\
     </div>';
     return card;
 };
-
-
-
-
-
-
-
-
 
 console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0].innerText);
