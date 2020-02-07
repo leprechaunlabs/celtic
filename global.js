@@ -62,12 +62,12 @@ function appendOrderNumbers(data) {
     var card =
     '<div class="card">\
         <div class="image">\
-            <img src="/images/avatar2/large/matthew.png">\
+            <img src="https://cdn.onlinewebfonts.com/svg/img_226626.png">\
         </div>\
         <div class="content">\
             <div class="header">Order Numbers</div>\
             <div class="meta">\
-                <a>Friends</a>\
+                <a></a>\
             </div>\
             <div class="description">\
                 <ul class="ui sub header" style="list-style: none;">'
@@ -104,30 +104,27 @@ function appendCostSummary(data) {
     if (valuePresent(data.data[0].total)) {
         total = '<li>total<p>' + data.data[0].total + '</p></li>'
     }
-
-
-    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
-    <div class="content">\
-        <div class="header">Cost Summary</div>\
-    </div>\
-    <div class="content">\
-        <div class="ui small feed">\
-            <div class="event">\
-                <div class="content">\
-                    <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">'
-        + subtotal
-        + taxtotal
-        + shippingcost
-        + handlingcost
-        + total +
-        '</ul>\
-                    </div>\
-                </div>\
+    var card =
+    '<div class="card">\
+        <div class="image">\
+            <img src="https://image.flaticon.com/icons/png/512/126/126249.png">\
+        </div>\
+        <div class="content">\
+            <div class="header">Cost Summary</div>\
+            <div class="meta">\
+                <a></a>\
+            </div>\
+            <div class="description">\
+                <ul class="ui sub header" style="list-style: none;">'
+                + subtotal
+                + taxtotal
+                + shippingcost
+                + handlingcost
+                + total +
+               '</ul>\
             </div>\
         </div>\
-    </div>\
-</div>';
+    </div>';
     return card;
 };
 
@@ -159,28 +156,29 @@ function appendShippingInformation(data) {
         shippingcost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].shippingcost + '</p></li>'
     }
 
-    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
-    <div class="content">\
-        <div class="header">Shipping Information</div>\
-    </div>\
-    <div class="content">\
-        <div class="ui small feed">\
-            <div class="event">\
-                <div class="content">\
-                    <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">'
-        + shipaddress
-        + carrier
-        + shipmethod
-        + shipdate
-        + custbody_lp_shipping_arrival_date
-        + shippingcost +
-        '</div >\
-                </div >\
-            </div >\
-        </div >\
-    </div >\
-</div > ';
+
+    var card =
+    '<div class="card">\
+        <div class="image">\
+            <img src="https://cdn.onlinewebfonts.com/svg/img_412338.png">\
+        </div>\
+        <div class="content">\
+            <div class="header">Shipping Information</div>\
+            <div class="meta">\
+                <a></a>\
+            </div>\
+            <div class="description">\
+                <ul class="ui sub header" style="list-style: none;">'
+                + shipaddress
+                + carrier
+                + shipmethod
+                + shipdate
+                + custbody_lp_shipping_arrival_date
+                + shippingcost +
+               '</ul>\
+            </div>\
+        </div>\
+    </div>';
     return card;
 };
 
@@ -298,27 +296,27 @@ function appendStatus(data) {
         };
     }
 
-    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
-    <div class="content">\
-    <div class="header">Status of Order</div>\
-    </div>\
-    <div class="content">\
-        <div class="ui small feed">\
-            <div class="event">\
-                <div class="content">\
-                    <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">'
-        + custbody_lp_status_stock
-        + custbody_lp_status_artwork_setup
-        + custbody_lp_status_payment
-        + custbody_lp_status_approval_request +
-        '</ul>\
-                    </div>\
-                </div>\
+
+    var card =
+    '<div class="card">\
+        <div class="image">\
+            <img src="https://cdn.onlinewebfonts.com/svg/img_148079.png">\
+        </div>\
+        <div class="content">\
+            <div class="header">Status of Order</div>\
+            <div class="meta">\
+                <a></a>\
+            </div>\
+            <div class="description">\
+                <ul class="ui sub header" style="list-style: none;">'
+                + custbody_lp_status_stock
+                + custbody_lp_status_artwork_setup
+                + custbody_lp_status_payment
+                + custbody_lp_status_approval_request +
+               '</ul>\
             </div>\
         </div>\
-    </div>\
-</div>';
+    </div>';
     return card;
 };
 
