@@ -1,12 +1,9 @@
 var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=391&deploy=1&compid=4976131_SB1&h=bc0412cde19c51afd168";
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
-
-
-
 $("#button-order-status-modal").click(function () {
     $(".horizontalCards").append(
-        '<div class="ui segment"><div class="ui active slow green double loader"></div><br><br><br><br></div>');
+        '<div class="ui segment"><div class="ui active slow green double large text loader"></div><br><br><br><br></div>');
         $('.ui.modal')
         .modal('show');
     $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
