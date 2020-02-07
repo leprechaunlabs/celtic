@@ -59,30 +59,28 @@ function appendOrderNumbers(data) {
     if (valuePresent(data.data[0].saleseffectivedate)) {
         saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
-
-    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
-    <div class="content">\
-        <div class="header">Order Numbers</div>\
-    </div>\
-    <div class="content">\
-        <div class="ui small feed">\
-            <div class="event">\
-                <div class="content">\
-                    <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">'
-        + entity
-        + tranid
-        + otherrefnum
-        + saleseffectivedate +
-        '</ul>\
-                    </div>\
-                </div>\
+    var card =
+    '<div class="card">\
+        <div class="image">\
+            <img src="/images/avatar2/large/matthew.png">\
+        </div>\
+        <div class="content">\
+            <div class="header">Order Numbers</div>\
+            <div class="meta">\
+                <a>Friends</a>\
+            </div>\
+            <div class="description">\
+                <ul class="ui sub header" style="list-style: none;">'
+                    + entity
+                    + tranid
+                    + otherrefnum
+                    + saleseffectivedate +
+               '</ul>\
             </div>\
         </div>\
-    </div>\
-</div>';
+    </div>';
     return card;
-};
+    };
 
 function appendCostSummary(data) {
     var subtotal = "";
