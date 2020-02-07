@@ -8,13 +8,13 @@ $("#button-order-status-modal").click(function () {
         '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
         $('.ui.modal')
         .modal('show');
-    // $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
-    //     $(".horizontalCards").empty();
-    //     document.getElementById('input-job-number').value = "";
-    //     $("#loader").empty();
-    //     var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),];
-    //     appending.forEach(element => $(".horizontalCards").append(element));
-    // });
+    $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
+        $(".horizontalCards").empty();
+        document.getElementById('input-job-number').value = "";
+        $("#loader").empty();
+        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),];
+        appending.forEach(element => $(".horizontalCards").append(element));
+    });
 });
 
 document.querySelector("#button-order-status-page").addEventListener("click", function (event) {
