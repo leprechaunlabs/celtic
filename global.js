@@ -45,7 +45,10 @@ function appendOrderNumbers(data) {
     var saleseffectivedate = "";
 
     if (valuePresent(data.data[0].entity)) {
-        entity = '<li>entity:<p>' + data.data[0].entity + '</p></li>'
+        var entity = data.data[0].entity;
+        entity = / (.+)/.exec(entity)[1];
+
+        entity = '<li>entity:<p>' + entity + '</p></li>'
     }
     if (valuePresent(data.data[0].tranid)) {
         tranid = '<li>JOB NUMBER:<p>' + data.data[0].tranid + '</p></li>'
@@ -134,7 +137,7 @@ function appendCostSummary(data) {
 function appendShippingInformation(data) {
     var shipaddress = "";
     var carrier = "";
-    var shipmethod= "";
+    var shipmethod = "";
     var shipdate = "";
     var custbody_lp_shipping_arrival_date = "";
     var shippingcost = "";
@@ -146,7 +149,7 @@ function appendShippingInformation(data) {
         var carrier = '<li>SHIPPING CARRIER<p>' + data.data[0].carrier + '</p></li>'
     }
     if (valuePresent(data.data[0].shipmethod)) {
-        shipmethod= '<li>SHIPPING METHOD<p>' + data.data[0].shipmethod+ '</p></li>'
+        shipmethod = '<li>SHIPPING METHOD<p>' + data.data[0].shipmethod + '</p></li>'
     }
     if (valuePresent(data.data[0].shipdate)) {
         shipdate = '<li>SHIP DATE<p>' + data.data[0].shipdate + '</p></li>'
@@ -168,7 +171,7 @@ function appendShippingInformation(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">'
-                        + shipaddress
+        + shipaddress
         + carrier
         + shipmethod
         + shipdate
