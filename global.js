@@ -5,7 +5,7 @@ $("#button-order-status-modal").click(function () {
    
     $("#loader").empty();
     $("#loader").append(
-        '<div class="ui segment"><div class="ui active dimmer" style"height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
+        '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
         $('.ui.modal')
         .modal('show');
     // $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
