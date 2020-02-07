@@ -4,7 +4,7 @@ var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 $("#button-order-status-modal").click(function () {
     $(".horizontalCards").empty();
     $(".horizontalCards").append(
-        '<div class="ui segment"><div class="ui active slow green double large text loader"></div><br><br><br><br></div>');
+        '<div class="ui segment"><div class="ui active slow green double loader">Loading your Information</div><br><br><br><br></div>');
         $('.ui.modal')
         .modal('show');
     $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
