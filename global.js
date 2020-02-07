@@ -60,7 +60,7 @@ function appendOrderNumbers(data) {
         saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
     var card =
-        '<div class="card style="margin-top: 30px;"" >\
+        '<div class="card"  style="margin-top: 30px;" >\
         <div class="image">\
             <img src="https://cdn.onlinewebfonts.com/svg/img_226626.png">\
         </div>\
