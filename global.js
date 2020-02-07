@@ -5,10 +5,10 @@ $("#button-order-status-modal").click(function () {
     $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
         console.log(data);
         //console.log(jqXHR);
-        $(".modal").empty();
+        $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),];
-        appending.forEach(element => $(".modal").append(element));
+        appending.forEach(element => $(".horizontalCards").append(element));
         $('.ui.modal')
             .modal('show');
     });
