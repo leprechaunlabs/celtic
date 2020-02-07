@@ -39,22 +39,22 @@ function valuePresent(field) {
 }
 
 function appendOrderNumbers(data) {
-    var customer = "";
-    var job_number = "";
-    var po_number = "";
-    var order_date = "";
+    var entity = "";
+    var tranid = "";
+    var otherrefnum = "";
+    var saleseffectivedate = "";
 
-    if (valuePresent(data.data[0].customer)) {
-        customer = '<li>CUSTOMER:<p>' + data.data[0].customer + '</p></li>'
+    if (valuePresent(data.data[0].entity)) {
+        entity = '<li>entity:<p>' + data.data[0].entity + '</p></li>'
     }
-    if (valuePresent(data.data[0].job_number)) {
-        job_number = '<li>JOB NUMBER:<p>' + data.data[0].job_number + '</p></li>'
+    if (valuePresent(data.data[0].tranid)) {
+        tranid = '<li>JOB NUMBER:<p>' + data.data[0].tranid + '</p></li>'
     }
-    if (valuePresent(data.data[0].po_number)) {
-        po_number = '<li>PO NUMBER<p>' + data.data[0].po_number + '</p></li>'
+    if (valuePresent(data.data[0].otherrefnum)) {
+        otherrefnum = '<li>PO NUMBER<p>' + data.data[0].otherrefnum + '</p></li>'
     }
-    if (valuePresent(data.data[0].order_date)) {
-        order_date = '<li>ORDER DATE<p>' + data.data[0].order_date + '</p></li>'
+    if (valuePresent(data.data[0].saleseffectivedate)) {
+        saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
 
     var card = '<div class="ui card" style="margin:20px;">\
@@ -67,10 +67,10 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">'
-        + customer
-        + job_number
-        + po_number
-        + order_date +
+        + entity
+        + tranid
+        + otherrefnum
+        + saleseffectivedate +
         '</ul>\
                     </div>\
                 </div>\
@@ -83,25 +83,25 @@ function appendOrderNumbers(data) {
 
 function appendCostSummary(data) {
     var subtotal = "";
-    var tax_total = "";
-    var estimated_shipping_cost = "";
-    var handling_cost = "";
+    var taxtotal = "";
+    var shippingcost = "";
+    var handlingcost = "";
     var total = "";
 
     if (valuePresent(data.data[0].subtotal)) {
-        subtotal = '<li>SUBTOTAL<p>' + data.data[0].subtotal + '</p></li>'
+        subtotal = '<li>subtotal<p>' + data.data[0].subtotal + '</p></li>'
     }
-    if (valuePresent(data.data[0].tax_total)) {
-        tax_total = '<li>TAX TOTAL<p>' + data.data[0].tax_total + '</p></li>'
+    if (valuePresent(data.data[0].taxtotal)) {
+        taxtotal = '<li>TAX total<p>' + data.data[0].taxtotal + '</p></li>'
     }
-    if (valuePresent(data.data[0].estimated_shipping_cost)) {
-        estimated_shipping_cost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].estimated_shipping_cost + '</p></li>'
+    if (valuePresent(data.data[0].shippingcost)) {
+        shippingcost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].shippingcost + '</p></li>'
     }
-    if (valuePresent(data.data[0].handling_cost)) {
-        handling_cost = '<li>HANDLING COST<p>' + data.data[0].handling_cost + '</p></li>'
+    if (valuePresent(data.data[0].handlingcost)) {
+        handlingcost = '<li>HANDLING COST<p>' + data.data[0].handlingcost + '</p></li>'
     }
     if (valuePresent(data.data[0].total)) {
-        total = '<li>TOTAL<p>' + data.data[0].total + '</p></li>'
+        total = '<li>total<p>' + data.data[0].total + '</p></li>'
     }
 
 
@@ -116,9 +116,9 @@ function appendCostSummary(data) {
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">'
         + subtotal
-        + tax_total
-        + estimated_shipping_cost
-        + handling_cost
+        + taxtotal
+        + shippingcost
+        + handlingcost
         + total +
         '</ul>\
                     </div>\
@@ -132,30 +132,30 @@ function appendCostSummary(data) {
 
 
 function appendShippingInformation(data) {
-    var ship_to = "";
-    var shipping_carrier = "";
-    var shipping_method = "";
-    var ship_date = "";
-    var arrival_date = "";
-    var shipping_cost = "";
+    var shipaddress = "";
+    var carrier = "";
+    var shipmethod= "";
+    var shipdate = "";
+    var custbody_lp_shipping_arrival_date = "";
+    var shippingcost = "";
 
-    if (valuePresent(data.data[0].ship_to)) {
-        var ship_to = '<li>SHIP TO:<p>' + data.data[0].ship_to + '</p></li>'
+    if (valuePresent(data.data[0].shipaddress)) {
+        var shipaddress = '<li>SHIP TO:<p>' + data.data[0].shipaddress + '</p></li>'
     }
-    if (valuePresent(data.data[0].shipping_carrier)) {
-        var shipping_carrier = '<li>SHIPPING CARRIER<p>' + data.data[0].shipping_carrier + '</p></li>'
+    if (valuePresent(data.data[0].carrier)) {
+        var carrier = '<li>SHIPPING CARRIER<p>' + data.data[0].carrier + '</p></li>'
     }
-    if (valuePresent(data.data[0].shipping_method)) {
-        shipping_method = '<li>SHIPPING METHOD<p>' + data.data[0].shipping_method + '</p></li>'
+    if (valuePresent(data.data[0].shipmethod)) {
+        shipmethod= '<li>SHIPPING METHOD<p>' + data.data[0].shipmethod+ '</p></li>'
     }
-    if (valuePresent(data.data[0].ship_date)) {
-        ship_date = '<li>SHIP DATE<p>' + data.data[0].ship_date + '</p></li>'
+    if (valuePresent(data.data[0].shipdate)) {
+        shipdate = '<li>SHIP DATE<p>' + data.data[0].shipdate + '</p></li>'
     }
-    if (valuePresent(data.data[0].scheduled_arrival_date)) {
-        arrival_date = '<li>SHIP DATE<p>' + data.data[0].scheduled_arrival_date + '</p></li>'
+    if (valuePresent(data.data[0].scheduled_custbody_lp_shipping_arrival_date)) {
+        custbody_lp_shipping_arrival_date = '<li>SHIP DATE<p>' + data.data[0].scheduled_custbody_lp_shipping_arrival_date + '</p></li>'
     }
-    if (valuePresent(data.data[0].estimated_shipping_cost)) {
-        shipping_cost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].estimated_shipping_cost + '</p></li>'
+    if (valuePresent(data.data[0].shippingcost)) {
+        shippingcost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].shippingcost + '</p></li>'
     }
 
     var card = '<div class="ui card" style="margin:20px;">\
@@ -167,12 +167,13 @@ function appendShippingInformation(data) {
             <div class="event">\
                 <div class="content">\
                     <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">'+ ship_to
-        + shipping_carrier
-        + shipping_method
-        + ship_date
-        + arrival_date
-        + shipping_cost +
+                        <ul class="ui sub header" style="list-style: none;">'
+                        + shipaddress
+        + carrier
+        + shipmethod
+        + shipdate
+        + custbody_lp_shipping_arrival_date
+        + shippingcost +
         '</div >\
                 </div >\
             </div >\
@@ -185,7 +186,7 @@ function appendShippingInformation(data) {
 function appendStatus(data) {
     //shipping
 
-    //1 job hold == job issues or customer request
+    //1 job hold == job issues or entity request
     //2 stock status == Stock:Available or Stock:issue:unresolved or stock:issue:resolved
     //3 artwork setup status == completed or processing or revising or issue or transferred or pending or transfer
     //4 approval request status == revision requested or pending request or pending response
@@ -199,98 +200,98 @@ function appendStatus(data) {
     //11 art issue
 
     /*
-    <custbody_lp_status_approval_request>4</custbody_lp_status_approval_request> production is approval request status list and value 1 approved 2 revision requsted 3 pending request 4 pending response
-    <custbody_lp_status_artwork_setup>1</custbody_lp_status_artwork_setup> production is artwork setup status list and 1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
-    <custbody_lp_status_payment>5</custbody_lp_status_payment> productio is payment status list and values 1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no customer 7 credit card 
-    <custbody_lp_status_stock>1</custbody_lp_status_stock> production is stock status and values 1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved 
+    <custbody_lp_custbody_lp_status_approval_request_request>4</custbody_lp_custbody_lp_status_approval_request_request> production is approval request status list and value 1 approved 2 revision requsted 3 pending request 4 pending response
+    <custbody_lp_custbody_lp_status_artwork_setup_setup>1</custbody_lp_custbody_lp_status_artwork_setup_setup> production is artwork setup status list and 1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
+    <custbody_lp_custbody_lp_status_payment>5</custbody_lp_custbody_lp_status_payment> productio is payment status list and values 1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no entity 7 credit card 
+    <custbody_lp_custbody_lp_status_stock>1</custbody_lp_custbody_lp_status_stock> production is stock status and values 1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved 
     */
 
-    var status_stock = "";
-    var status_artwork = "";
-    var status_payment = "";
-    var status_approval = "";
+    var custbody_lp_status_stock = "";
+    var custbody_lp_status_artwork_setup = "";
+    var custbody_lp_status_payment = "";
+    var custbody_lp_status_approval_request = "";
 
 
-    if (valuePresent(data.data[0].status_stock)) {
+    if (valuePresent(data.data[0].custbody_lp_status_stock)) {
         //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
-        switch (data.data[0].status_stock) {
+        switch (data.data[0].custbody_lp_status_stock) {
             case "1":
-                status_stock = '<li>STATUS STOCK<p> We have the stock to fulfill your order. </p></li>'
+                custbody_lp_status_stock = '<li>STATUS STOCK<p> We have the stock to fulfill your order. </p></li>'
                 break;
             case "2":
-                status_stock = '<li>STATUS STOCK<p> We have unresolved stock issues. If</p></li>'
+                custbody_lp_status_stock = '<li>STATUS STOCK<p> We have unresolved stock issues. If</p></li>'
                 break;
             case "3":
-                status_stock = '<li>STATUS STOCK<p> We have resolved stock issues</p></li>'
+                custbody_lp_status_stock = '<li>STATUS STOCK<p> We have resolved stock issues</p></li>'
                 break;
             default:
         };
     }
-    if (valuePresent(data.data[0].status_artwork)) {
+    if (valuePresent(data.data[0].custbody_lp_status_artwork_setup)) {
         //1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
-        switch (data.data[0].status_artwork) {
+        switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                status_artwork = '<li>STATUS ARTWORK<p>Artwork is complete</p></li>'
+                custbody_lp_status_artwork_setup = '<li>STATUS ARTWORK<p>Artwork is complete</p></li>'
                 break;
             case "2":
-                status_artwork = '<li>STATUS ARTWORK<p>Artwork being processed</p></li>'
+                custbody_lp_status_artwork_setup = '<li>STATUS ARTWORK<p>Artwork being processed</p></li>'
                 break;
             case "3":
-                status_artwork = '<li>STATUS ARTWORK<p>ArtWork being revised</p></li>'
+                custbody_lp_status_artwork_setup = '<li>STATUS ARTWORK<p>ArtWork being revised</p></li>'
                 break;
             case "4":
-                status_artwork = '<li>STATUS ARTWORK<p>Artwork issues</p></li>'
+                custbody_lp_status_artwork_setup = '<li>STATUS ARTWORK<p>Artwork issues</p></li>'
                 break;
             case "5":
-                status_artwork = '<li>STATUS ARTWORK<p>transferred</p></li>'
+                custbody_lp_status_artwork_setup = '<li>STATUS ARTWORK<p>transferred</p></li>'
                 break;
             case "6":
-                status_artwork = '<li>STATUS ARTWORK<p>pending transfer</p></li>'
+                custbody_lp_status_artwork_setup = '<li>STATUS ARTWORK<p>pending transfer</p></li>'
                 break;
             default:
         };
     }
-    if (valuePresent(data.data[0].status_payment)) {
-        //1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no customer 7 credit card
-        switch (data.data[0].status_artwork) {
+    if (valuePresent(data.data[0].custbody_lp_status_payment)) {
+        //1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no entity 7 credit card
+        switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                status_payment = '<li>STATUS PAYMENT<p>Net Terms</p></li>'
+                custbody_lp_status_payment = '<li>STATUS PAYMENT<p>Net Terms</p></li>'
                 break;
             case "2":
-                status_payment = '<li>STATUS PAYMENT<p>On File</p></li>'
+                custbody_lp_status_payment = '<li>STATUS PAYMENT<p>On File</p></li>'
                 break;
             case "3":
-                status_payment = '<li>STATUS PAYMENT<p>Received</p></li>'
+                custbody_lp_status_payment = '<li>STATUS PAYMENT<p>Received</p></li>'
                 break;
             case "4":
-                status_payment = '<li>STATUS PAYMENT<p>Pending Request</p></li>'
+                custbody_lp_status_payment = '<li>STATUS PAYMENT<p>Pending Request</p></li>'
                 break;
             case "5":
-                status_payment = '<li>STATUS PAYMENT<p>Pending Response</p></li>'
+                custbody_lp_status_payment = '<li>STATUS PAYMENT<p>Pending Response</p></li>'
                 break;
             case "6":
-                status_payment = '<li>STATUS PAYMENT<p>No Customer</p></li>'
+                custbody_lp_status_payment = '<li>STATUS PAYMENT<p>No entity</p></li>'
                 break;
             case "7":
-                status_payment = '<li>STATUS PAYMENT<p>Credit Card</p></li>'
+                custbody_lp_status_payment = '<li>STATUS PAYMENT<p>Credit Card</p></li>'
                 break;
             default:
         };
     }
-    if (valuePresent(data.data[0].status_approval)) {
+    if (valuePresent(data.data[0].custbody_lp_status_approval_request)) {
         //1 approved 2 revision requsted 3 pending request 4 pending response
-        switch (data.data[0].status_approval) {
+        switch (data.data[0].custbody_lp_status_approval_request) {
             case "1":
-                status_approval = '<li>STATUS APPROVAL<p>Approved</p></li>'
+                custbody_lp_status_approval_request = '<li>STATUS APPROVAL<p>Approved</p></li>'
                 break;
             case "2":
-                status_approval = '<li>STATUS APPROVAL<p>Revision Requested</p></li>'
+                custbody_lp_status_approval_request = '<li>STATUS APPROVAL<p>Revision Requested</p></li>'
                 break;
             case "3":
-                status_approval = '<li>STATUS APPROVAL<p>Pending Request</p></li>'
+                custbody_lp_status_approval_request = '<li>STATUS APPROVAL<p>Pending Request</p></li>'
                 break;
             case "4":
-                status_approval = '<li>STATUS APPROVAL<p>Pending Response</p></li>'
+                custbody_lp_status_approval_request = '<li>STATUS APPROVAL<p>Pending Response</p></li>'
                 break;
             default:
         };
@@ -306,10 +307,10 @@ function appendStatus(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">'
-        + status_stock
-        + status_artwork
-        + status_payment
-        + status_approval +
+        + custbody_lp_status_stock
+        + custbody_lp_status_artwork_setup
+        + custbody_lp_status_payment
+        + custbody_lp_status_approval_request +
         '</ul>\
                     </div>\
                 </div>\
