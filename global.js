@@ -7,7 +7,7 @@ $("#button-order-status-modal").click(function () {
         //console.log(jqXHR);
         $(".modal").empty();
         document.getElementById('input-job-number').value = "";
-        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data), ];
+        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),];
         appending.forEach(element => $(".modal").append(element));
         $('.ui.modal')
             .modal('show');
@@ -32,29 +32,29 @@ function buildOrderStatusURL(jobNumber) {
     return builtURL;
 };
 function valuePresent(field) {
-    if (field == "" || field ==null) {
+    if (field == "" || field == null) {
         return false;
     }
     return true;
 }
 
 function appendOrderNumbers(data) {
-    var customer="";
-    var job_number="";
-    var po_number="";
-    var order_date="";
-    
+    var customer = "";
+    var job_number = "";
+    var po_number = "";
+    var order_date = "";
+
     if (valuePresent(data.data[0].customer)) {
-        customer = '<li>CUSTOMER:<p>'+ data.data[0].customer + '</p></li>'
+        customer = '<li>CUSTOMER:<p>' + data.data[0].customer + '</p></li>'
     }
     if (valuePresent(data.data[0].job_number)) {
-        job_number = '<li>JOB NUMBER:<p>'+ data.data[0].job_number + '</p></li>'
+        job_number = '<li>JOB NUMBER:<p>' + data.data[0].job_number + '</p></li>'
     }
-    if (valuePresent(data.data[0].po_number )) {
-        po_number = '<li>PO NUMBER<p>'+ data.data[0].po_number + '</p></li>'
+    if (valuePresent(data.data[0].po_number)) {
+        po_number = '<li>PO NUMBER<p>' + data.data[0].po_number + '</p></li>'
     }
     if (valuePresent(data.data[0].order_date)) {
-        order_date = '<li>ORDER DATE<p>'+ data.data[0].order_date + '</p></li>'
+        order_date = '<li>ORDER DATE<p>' + data.data[0].order_date + '</p></li>'
     }
 
     var card = '<div class="ui card" style="margin:20px;">\
@@ -67,11 +67,11 @@ function appendOrderNumbers(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">'
-                        +customer
-                        +job_number
-                        +po_number
-                        +order_date+
-                        '</ul>\
+        + customer
+        + job_number
+        + po_number
+        + order_date +
+        '</ul>\
                     </div>\
                 </div>\
             </div>\
@@ -82,28 +82,28 @@ function appendOrderNumbers(data) {
 };
 
 function appendCostSummary(data) {
-    var subtotal="";
-    var tax_total="";
-    var estimated_shipping_cost="";
-    var handling_cost="";
-    var total="";
-    
+    var subtotal = "";
+    var tax_total = "";
+    var estimated_shipping_cost = "";
+    var handling_cost = "";
+    var total = "";
+
     if (valuePresent(data.data[0].subtotal)) {
-        subtotal = '<li>SUBTOTAL<p>'+ data.data[0].subtotal + '</p></li>'
+        subtotal = '<li>SUBTOTAL<p>' + data.data[0].subtotal + '</p></li>'
     }
     if (valuePresent(data.data[0].tax_total)) {
-        tax_total = '<li>TAX TOTAL<p>'+ data.data[0].tax_total + '</p></li>'
+        tax_total = '<li>TAX TOTAL<p>' + data.data[0].tax_total + '</p></li>'
     }
-    if (valuePresent(data.data[0].estimated_shipping_cost )) {
-        estimated_shipping_cost = '<li>ESTIMATED SHIPPING COST<p>'+ data.data[0].estimated_shipping_cost + '</p></li>'
+    if (valuePresent(data.data[0].estimated_shipping_cost)) {
+        estimated_shipping_cost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].estimated_shipping_cost + '</p></li>'
     }
     if (valuePresent(data.data[0].handling_cost)) {
-        handling_cost = '<li>HANDLING COST<p>'+ data.data[0].handling_cost + '</p></li>'
+        handling_cost = '<li>HANDLING COST<p>' + data.data[0].handling_cost + '</p></li>'
     }
-    if (valuePresent(data.data[0].total )) {
-        total = '<li>TOTAL<p>'+ data.data[0].total + '</p></li>'
+    if (valuePresent(data.data[0].total)) {
+        total = '<li>TOTAL<p>' + data.data[0].total + '</p></li>'
     }
-    
+
 
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
@@ -115,12 +115,12 @@ function appendCostSummary(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">'
-                        +subtotal
-                        +tax_total
-                        +estimated_shipping_cost
-                        +handling_cost
-                        +total+
-                        '</ul>\
+        + subtotal
+        + tax_total
+        + estimated_shipping_cost
+        + handling_cost
+        + total +
+        '</ul>\
                     </div>\
                 </div>\
             </div>\
@@ -132,32 +132,32 @@ function appendCostSummary(data) {
 
 
 function appendShippingInformation(data) {
-    var ship_to="";
-    var shipping_carrier="";
-    var shipping_method="";
-    var ship_date="";
-    var arrival_date="";
-    var shipping_cost="";
+    var ship_to = "";
+    var shipping_carrier = "";
+    var shipping_method = "";
+    var ship_date = "";
+    var arrival_date = "";
+    var shipping_cost = "";
 
     if (valuePresent(data.data[0].ship_to)) {
-        var ship_to = '<li>SHIP TO:<p>'+data.data[0].ship_to+'</p></li>'
+        var ship_to = '<li>SHIP TO:<p>' + data.data[0].ship_to + '</p></li>'
     }
     if (valuePresent(data.data[0].shipping_carrier)) {
-        var shipping_carrier = '<li>SHIPPING CARRIER<p>'+data.data[0].shipping_carrier+'</p></li>'
+        var shipping_carrier = '<li>SHIPPING CARRIER<p>' + data.data[0].shipping_carrier + '</p></li>'
     }
     if (valuePresent(data.data[0].shipping_method)) {
-        shipping_method = '<li>SHIPPING METHOD<p>'+data.data[0].shipping_method+'</p></li>'
+        shipping_method = '<li>SHIPPING METHOD<p>' + data.data[0].shipping_method + '</p></li>'
     }
     if (valuePresent(data.data[0].ship_date)) {
-        ship_date = '<li>SHIP DATE<p>'+data.data[0].ship_date+'</p></li>'
+        ship_date = '<li>SHIP DATE<p>' + data.data[0].ship_date + '</p></li>'
     }
     if (valuePresent(data.data[0].scheduled_arrival_date)) {
-        arrival_date = '<li>SHIP DATE<p>'+data.data[0].scheduled_arrival_date+'</p></li>'
+        arrival_date = '<li>SHIP DATE<p>' + data.data[0].scheduled_arrival_date + '</p></li>'
     }
     if (valuePresent(data.data[0].estimated_shipping_cost)) {
-        shipping_cost = '<li>ESTIMATED SHIPPING COST<p>'+data.data[0].estimated_shipping_cost+'</p></li>'
+        shipping_cost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].estimated_shipping_cost + '</p></li>'
     }
-     
+
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
         <div class="header">Shipping Information</div>\
@@ -167,13 +167,13 @@ function appendShippingInformation(data) {
             <div class="event">\
                 <div class="content">\
                     <div class="summary">\
-                        <ul class="ui sub header" style="list-style: none;">'+ship_to
-                         + shipping_carrier
-                         + shipping_method
-                         + ship_date
-                         + arrival_date
-                         + shipping_cost+
-                    '</div >\
+                        <ul class="ui sub header" style="list-style: none;">'+ ship_to
+        + shipping_carrier
+        + shipping_method
+        + ship_date
+        + arrival_date
+        + shipping_cost +
+        '</div >\
                 </div >\
             </div >\
         </div >\
@@ -205,25 +205,97 @@ function appendStatus(data) {
     <custbody_lp_status_stock>1</custbody_lp_status_stock> production is stock status and values 1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved 
     */
 
-    var status_stock=""; 
-    var status_artwork="";
-    var status_payment="";
-    var status_approval=""; 
-   
-    
-    if (valuePresent(data.data[0].status_stock )) {
-        status_stock = '<li>STATUS STOCK<p>'+ data.data[0].status_stock + '</p></li>'
+    var status_stock = "";
+    var status_artwork = "";
+    var status_payment = "";
+    var status_approval = "";
+
+
+    if (valuePresent(data.data[0].status_stock)) {
+        //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
+        switch (data.data[0].status_stock) {
+            case "1":
+                status_stock = '<li>STATUS STOCK<p> We have the stock to fulfill your order. </p></li>'
+                break;
+            case "2":
+                status_stock = '<li>STATUS STOCK<p> We have unresolved stock issues. If</p></li>'
+                break;
+            case "3":
+                status_stock = '<li>STATUS STOCK<p> We have resolved stock issues</p></li>'
+                break;
+            default:
+        };
     }
     if (valuePresent(data.data[0].status_artwork)) {
-        status_artwork = '<li>STATUS ARTWORK<p>'+ data.data[0].status_artwork + '</p></li>'
+        //1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
+        switch (data.data[0].status_artwork) {
+            case "1":
+                status_artwork = '<li>STATUS ARTWORK<p>Artwork is complete</p></li>'
+                break;
+            case "2":
+                status_artwork = '<li>STATUS ARTWORK<p>Artwork being processed</p></li>'
+                break;
+            case "3":
+                status_artwork = '<li>STATUS ARTWORK<p>ArtWork being revised</p></li>'
+                break;
+            case "4":
+                status_artwork = '<li>STATUS ARTWORK<p>Artwork issues</p></li>'
+                break;
+            case "5":
+                status_artwork = '<li>STATUS ARTWORK<p>transferred</p></li>'
+                break;
+            case "6":
+                status_artwork = '<li>STATUS ARTWORK<p>pending transfer</p></li>'
+                break;
+            default:
+        };
     }
     if (valuePresent(data.data[0].status_payment)) {
-        status_payment = '<li>STATUS PAYMENT<p>'+ data.data[0].status_payment+ '</p></li>'
+        //1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no customer 7 credit card
+        switch (data.data[0].status_artwork) {
+            case "1":
+                status_payment = '<li>STATUS PAYMENT<p>Net Terms</p></li>'
+                break;
+            case "2":
+                status_payment = '<li>STATUS PAYMENT<p>On File</p></li>'
+                break;
+            case "3":
+                status_payment = '<li>STATUS PAYMENT<p>Received</p></li>'
+                break;
+            case "4":
+                status_payment = '<li>STATUS PAYMENT<p>Pending Request</p></li>'
+                break;
+            case "5":
+                status_payment = '<li>STATUS PAYMENT<p>Pending Response</p></li>'
+                break;
+            case "6":
+                status_payment = '<li>STATUS PAYMENT<p>No Customer</p></li>'
+                break;
+            case "7":
+                status_payment = '<li>STATUS PAYMENT<p>Credit Card</p></li>'
+                break;
+            default:
+        };
     }
     if (valuePresent(data.data[0].status_approval)) {
-        status_approval = '<li>STATUS APPROVAL<p>'+ data.data[0].status_approval+ '</p></li>'
+        //1 approved 2 revision requsted 3 pending request 4 pending response
+        switch (data.data[0].status_approval) {
+            case "1":
+                status_approval = '<li>STATUS APPROVAL<p>Approved</p></li>'
+                break;
+            case "2":
+                status_approval = '<li>STATUS APPROVAL<p>Revision Requested</p></li>'
+                break;
+            case "3":
+                status_approval = '<li>STATUS APPROVAL<p>Pending Request</p></li>'
+                break;
+            case "4":
+                status_approval = '<li>STATUS APPROVAL<p>Pending Response</p></li>'
+                break;
+            default:
+        };
     }
-   
+
     var card = '<div class="ui card" style="margin:20px;">\
     <div class="content">\
     <div class="header">Status of Order</div>\
@@ -234,11 +306,11 @@ function appendStatus(data) {
                 <div class="content">\
                     <div class="summary">\
                         <ul class="ui sub header" style="list-style: none;">'
-                            +status_stock
-                            +status_artwork
-                            +status_payment
-                            +status_approval+
-                        '</ul>\
+        + status_stock
+        + status_artwork
+        + status_payment
+        + status_approval +
+        '</ul>\
                     </div>\
                 </div>\
             </div>\
