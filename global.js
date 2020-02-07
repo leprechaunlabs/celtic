@@ -60,7 +60,7 @@ function appendOrderNumbers(data) {
         saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
 
-    var card = '<div class="ui card" style="margin:20px;">\
+    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
     <div class="content">\
         <div class="header">Order Numbers</div>\
     </div>\
@@ -108,7 +108,7 @@ function appendCostSummary(data) {
     }
 
 
-    var card = '<div class="ui card" style="margin:20px;">\
+    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
     <div class="content">\
         <div class="header">Cost Summary</div>\
     </div>\
@@ -161,7 +161,7 @@ function appendShippingInformation(data) {
         shippingcost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].shippingcost + '</p></li>'
     }
 
-    var card = '<div class="ui card" style="margin:20px;">\
+    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
     <div class="content">\
         <div class="header">Shipping Information</div>\
     </div>\
@@ -300,7 +300,7 @@ function appendStatus(data) {
         };
     }
 
-    var card = '<div class="ui card" style="margin:20px;">\
+    var card = '<div class="ui card" style="margin:20px; display: inline-flex;">\
     <div class="content">\
     <div class="header">Status of Order</div>\
     </div>\
