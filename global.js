@@ -2,12 +2,13 @@ var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/sc
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
-    $(".horizontalCards").empty();
-    $(".horizontalCards").append(
+    $(".modal").empty();
+    $(".modal").append(
         '<div class="ui segment"><div class="ui active dimmer"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
         $('.ui.modal')
         .modal('show');
     $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
+        $(".modal").empty();
         $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),];
