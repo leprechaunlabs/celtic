@@ -4,12 +4,10 @@ var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 $("#button-order-status-modal").click(function () {
     $(".horizontalCards").empty();
     $(".horizontalCards").append(
-        '<div class="ui segment"><div class="ui active slow green loader"></div><br><br><br><br></div>');
+        '<div class="ui segment"><div class="ui active dimmer"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
         $('.ui.modal')
         .modal('show');
     $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
-        //console.log(data);
-        //console.log(jqXHR);
         $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),];
