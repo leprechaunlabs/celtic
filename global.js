@@ -45,10 +45,10 @@ function appendOrderNumbers(data) {
     var saleseffectivedate = "";
 
     if (valuePresent(data.data[0].entity)) {
-        var entity = data.data[0].entity;
-        entity = / (.+)/.exec(entity)[1];
-
-        entity = '<li>entity:<p>' + entity + '</p></li>'
+        var str =data.data[0].entity ;
+        var pattern = /(^\S+\s)/g;
+        var entityname = str.replace(pattern,"");
+        entity = '<li>entity:<p>' + entityname + '</p></li>'
     }
     if (valuePresent(data.data[0].tranid)) {
         tranid = '<li>JOB NUMBER:<p>' + data.data[0].tranid + '</p></li>'
