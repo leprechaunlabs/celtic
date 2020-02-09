@@ -268,16 +268,16 @@ function appendStatus(data) {
         //1 approved 2 revision requsted 3 pending request 4 pending response
         switch (data.data[0].custbody_lp_status_approval_request) {
             case "1":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL<p>Approved</p><hr>'
+                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: <p>Approved</p><hr>'
                 break;
             case "2":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL<p>Revision Requested</p><hr>'
+                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: <p>Revision Requested</p><hr>'
                 break;
             case "3":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL<p>Pending Request</p><hr>'
+                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: <p>Pending Request</p><hr>'
                 break;
             case "4":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL<p>Pending Response</p><hr>'
+                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: <p>Pending Response</p><hr>'
                 break;
             default:
         };
