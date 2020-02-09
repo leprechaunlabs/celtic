@@ -357,6 +357,6 @@ console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0]);
 //         '</ul>\
 //             </div>\
 //         </div>\
-//     </div>';
+//     </div>';;
 
 
