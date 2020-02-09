@@ -66,7 +66,7 @@ function appendOrderNumbers(data) {
     '<div class="ui cards">\
     <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
         <div class="content">\
-            <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">\
+            <i class="shipping fast icon right floated mini ui image"></i>\
             <div class="header">\
                 Elliot Fu\
             </div>\
@@ -80,10 +80,6 @@ function appendOrderNumbers(data) {
             </div>\
         </div>\
         <div class="extra content">\
-            <div class="ui two buttons">\
-                <div class="ui basic green button">Approve</div>\
-                <div class="ui basic red button">Decline</div>\
-            </div>\
         </div>\
     </div>\
     <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;" >\
@@ -100,8 +96,6 @@ function appendOrderNumbers(data) {
             </div>\
         </div>\
         <div class="extra content">\
-            <div class="ui two buttons">\
-            </div>\
         </div>\
     </div>\
 </div>'
@@ -346,7 +340,32 @@ function appendStatus(data) {
     return card;
 };
 
-console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0].innerText);
+console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
