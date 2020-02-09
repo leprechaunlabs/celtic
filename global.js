@@ -340,35 +340,7 @@ function appendStatus(data) {
     return card;
 };
 
-console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0]);
 
 // '<div class="card"  style="margin-top: 30px;" >\
 //         <div class="image">\
