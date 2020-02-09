@@ -9,6 +9,7 @@ $("#button-order-status-modal").click(function () {
         $('.ui.modal')
         .modal('show');
     $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
+        console.log(data);
         $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         $("#loader").empty();
