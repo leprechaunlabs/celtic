@@ -66,7 +66,7 @@ function appendOrderNumbers(data) {
     '<div class="ui cards">\
     <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
         <div class="content">\
-            <i class="shipping fast icon right floated mini ui image"></i>\
+            <i class="shipping fast icon right floated"></i>\
             <div class="header">\
                 Elliot Fu\
             </div>\
