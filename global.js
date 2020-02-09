@@ -64,7 +64,7 @@ function appendOrderNumbers(data) {
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
     <div class="content">\
-        <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
+        <i class="list alternate outline icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
         Order Numbers\
         </div>\
@@ -308,7 +308,7 @@ function appendStatus(data) {
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
     <div class="content">\
-        <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
+        <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
             Order Status\
         </div>\
