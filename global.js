@@ -2,7 +2,6 @@ var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/sc
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
-   
     $("#loader").empty();
     $("#loader").append(
         '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
@@ -75,22 +74,22 @@ function appendCostSummary(data) {
     var total = "";
 
     if (valuePresent(data.data[0].subtotal)) {
-        subtotal = '<p>subtotal: ' + data.data[0].subtotal + '</p> <hr>'
+        subtotal = '<p>subtotal: $' + data.data[0].subtotal + '</p> <hr>'
     }
     if (valuePresent(data.data[0].taxtotal)) {
-        taxtotal = '<p>TAX total: ' + data.data[0].taxtotal + '</p> <hr>'
+        taxtotal = '<p>TAX total: $' + data.data[0].taxtotal + '</p> <hr>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost + '</p> <hr>'
+        shippingcost = '<p>ESTIMATED SHIPPING COST: $' + data.data[0].shippingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].handlingcost)) {
-        handlingcost = '<p>HANDLING COST: ' + data.data[0].handlingcost + '</p> <hr>'
+        handlingcost = '<p>HANDLING COST: $' + data.data[0].handlingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].total)) {
-        total = '<p>total: ' + data.data[0].total + '</p> <hr>'
+        total = '<p>total: $' + data.data[0].total + '</p> <hr>'
     }
     var card =
-    '<div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
     <div class="content">\
         <i class="dollar sign icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
@@ -140,12 +139,12 @@ function appendShippingInformation(data) {
         custbody_lp_shipping_arrival_date = '<p>SHIP DATE: ' + data.data[0].scheduled_custbody_lp_shipping_arrival_date +'</p> <hr>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost +'</p> <hr>'
+        shippingcost = '<p>ESTIMATED SHIPPING COST: $' + data.data[0].shippingcost +'</p> <hr>'
     }
 
 
     var card =
-   '<div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
+   '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
     <div class="content">\
         <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
