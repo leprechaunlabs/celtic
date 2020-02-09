@@ -64,7 +64,7 @@ function appendOrderNumbers(data) {
     }
     var card =
     '<div class="ui cards">\
-    <div class="card">\
+    <div class="card" style="400px;">\
         <div class="content">\
             <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">\
             <div class="header">\
