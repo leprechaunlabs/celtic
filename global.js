@@ -74,23 +74,9 @@ function appendOrderNumbers(data) {
                 Friends of Veronika\
             </div>\
             <div class="description">\
-                <div class="ui raised card">\
-                    <div class="content">\
-                        <div class="header">Cute Dog</div>\
-                        <div class="meta">\
-                            <span class="category">Animals</span>\
-                        </div>\
-                        <div class="description">\
-                            <p></p>\
-                        </div>\
-                    </div>\
-                    <div class="extra content">\
-                        <div class="right floated author">\
-                            <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt\
-                        </div>\
-                    </div>\
+                <div class="ui two buttons">\
+                    Elliot requested permission to view your contact details\
                 </div>\
-                Elliot requested permission to view your contact details\
             </div>\
         </div>\
         <div class="extra content">\
@@ -115,8 +101,6 @@ function appendOrderNumbers(data) {
         </div>\
         <div class="extra content">\
             <div class="ui two buttons">\
-                <div class="ui basic green button">Approve</div>\
-                <div class="ui basic red button">Decline</div>\
             </div>\
         </div>\
     </div>\
