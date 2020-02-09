@@ -62,7 +62,6 @@ function appendOrderNumbers(data) {
         saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
     var card =""
-    
 return card;    
 };
 
@@ -286,25 +285,27 @@ function appendStatus(data) {
 
 
     var card =
-        '<div class="card" style="margin-top: 30px;">\
-        <div class="image">\
-            <img src="https://cdn.onlinewebfonts.com/svg/img_148079.png">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
+    <div class="content">\
+        <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
+        <div class="header">\
+            Order Status\
         </div>\
-        <div class="content">\
-            <div class="header">Status of Order</div>\
-            <div class="meta">\
-                <a></a>\
-            </div>\
-            <div class="description">\
-                <ul class="ui sub header" style="list-style: none;">'
-        + custbody_lp_status_stock
-        + custbody_lp_status_artwork_setup
-        + custbody_lp_status_payment
-        + custbody_lp_status_approval_request +
-        '</ul>\
-            </div>\
+        <div class="meta">\
+            Friends of Veronika\
         </div>\
-    </div>';
+        <div class="extra content">\
+            <div class="description">'
+            + custbody_lp_status_stock
+            + custbody_lp_status_artwork_setup
+            + custbody_lp_status_payment
+            + custbody_lp_status_approval_request +
+                '</div>\
+        </div>\
+    </div>\
+    <div class="extra content">\
+    </div>\
+</div>'
     return card;
 };
 
