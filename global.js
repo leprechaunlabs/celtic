@@ -162,22 +162,22 @@ function appendShippingInformation(data) {
     var shippingcost = "";
 
     if (valuePresent(data.data[0].shipaddress)) {
-        var shipaddress = '<li>SHIP TO:<p>' + data.data[0].shipaddress + '</p></li>'
+        var shipaddress = '<p>SHIP TO: ' + data.data[0].shipaddress + '</p>'
     }
     if (valuePresent(data.data[0].carrier)) {
-        var carrier = '<li>SHIPPING CARRIER<p>' + data.data[0].carrier + '</p></li>'
+        var carrier = '<p>SHIPPING CARRIER: ' + data.data[0].carrier + '</p>'
     }
     if (valuePresent(data.data[0].shipmethod)) {
-        shipmethod = '<li>SHIPPING METHOD<p>' + data.data[0].shipmethod + '</p></li>'
+        shipmethod = '<p>SHIPPING METHOD: ' + data.data[0].shipmethod + '</p>'
     }
     if (valuePresent(data.data[0].shipdate)) {
-        shipdate = '<li>SHIP DATE<p>' + data.data[0].shipdate + '</p></li>'
+        shipdate = '<p>SHIP DATE: ' + data.data[0].shipdate + '</p>'
     }
     if (valuePresent(data.data[0].scheduled_custbody_lp_shipping_arrival_date)) {
-        custbody_lp_shipping_arrival_date = '<li>SHIP DATE<p>' + data.data[0].scheduled_custbody_lp_shipping_arrival_date + '</p></li>'
+        custbody_lp_shipping_arrival_date = '<p>SHIP DATE: ' + data.data[0].scheduled_custbody_lp_shipping_arrival_date +'</p>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].shippingcost + '</p></li>'
+        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost +'</p>'
     }
 
 
