@@ -62,7 +62,7 @@ function appendOrderNumbers(data) {
         saleseffectivedate = '<p>ORDER DATE: ' + data.data[0].saleseffectivedate + '</p><hr>'
     }
     var card =
-    '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
         <i class="list alternate outline icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
@@ -109,7 +109,7 @@ function appendCostSummary(data) {
         total = '<p>total: $' + data.data[0].total + '</p> <hr>'
     }
     var card =
-    '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
         <i class="dollar sign icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
@@ -164,7 +164,7 @@ function appendShippingInformation(data) {
 
 
     var card =
-   '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
+   '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
         <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
@@ -306,7 +306,7 @@ function appendStatus(data) {
 
 
     var card =
-    '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
         <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
         <div class="header">\
