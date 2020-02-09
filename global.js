@@ -75,19 +75,19 @@ function appendCostSummary(data) {
     var total = "";
 
     if (valuePresent(data.data[0].subtotal)) {
-        subtotal = '<p>subtotal: ' + data.data[0].subtotal + '</p>'
+        subtotal = '<p>subtotal: ' + data.data[0].subtotal + '</p> <hr>'
     }
     if (valuePresent(data.data[0].taxtotal)) {
-        taxtotal = '<p>TAX total: ' + data.data[0].taxtotal + '</p>'
+        taxtotal = '<p>TAX total: ' + data.data[0].taxtotal + '</p> <hr>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost + '</p>'
+        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].handlingcost)) {
-        handlingcost = '<p>HANDLING COST: ' + data.data[0].handlingcost + '</p>'
+        handlingcost = '<p>HANDLING COST: ' + data.data[0].handlingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].total)) {
-        total = '<p>total: ' + data.data[0].total + '</p>'
+        total = '<p>total: ' + data.data[0].total + '</p> <hr>'
     }
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
