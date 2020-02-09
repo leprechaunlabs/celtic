@@ -123,22 +123,22 @@ function appendShippingInformation(data) {
     var shippingcost = "";
 
     if (valuePresent(data.data[0].shipaddress)) {
-        var shipaddress = '<p>SHIP TO: ' + data.data[0].shipaddress + '</p>'
+        var shipaddress = '<p>SHIP TO: ' + data.data[0].shipaddress + '</p> <hr>' 
     }
     if (valuePresent(data.data[0].carrier)) {
-        var carrier = '<p>SHIPPING CARRIER: ' + data.data[0].carrier + '</p>'
+        var carrier = '<p>SHIPPING CARRIER: ' + data.data[0].carrier + '</p> <hr>'
     }
     if (valuePresent(data.data[0].shipmethod)) {
-        shipmethod = '<p>SHIPPING METHOD: ' + data.data[0].shipmethod + '</p>'
+        shipmethod = '<p>SHIPPING METHOD: ' + data.data[0].shipmethod + '</p> <hr>'
     }
     if (valuePresent(data.data[0].shipdate)) {
-        shipdate = '<p>SHIP DATE: ' + data.data[0].shipdate + '</p>'
+        shipdate = '<p>SHIP DATE: ' + data.data[0].shipdate + '</p> <hr>'
     }
     if (valuePresent(data.data[0].scheduled_custbody_lp_shipping_arrival_date)) {
-        custbody_lp_shipping_arrival_date = '<p>SHIP DATE: ' + data.data[0].scheduled_custbody_lp_shipping_arrival_date +'</p>'
+        custbody_lp_shipping_arrival_date = '<p>SHIP DATE: ' + data.data[0].scheduled_custbody_lp_shipping_arrival_date +'</p> <hr>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost +'</p>'
+        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost +'</p> <hr>'
     }
 
 
@@ -154,12 +154,12 @@ function appendShippingInformation(data) {
         </div>\
         <div class="extra content">\
             <div class="description">'
-                + shipaddress+'<hr>'
-                + carrier+'<hr>'
-                + shipmethod+'<hr>'
-                + shipdate+'<hr>'
-                + custbody_lp_shipping_arrival_date+'<hr>'
-                + shippingcost+'<hr>'+
+                + shipaddress
+                + carrier
+                + shipmethod
+                + shipdate
+                + custbody_lp_shipping_arrival_date
+                + shippingcost+
                 '</div>\
         </div>\
     </div>\
