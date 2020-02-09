@@ -182,27 +182,49 @@ function appendShippingInformation(data) {
 
 
     var card =
-        '<div class="card" style="margin-top: 30px;">\
-        <div class="image">\
-            <img src="https://cdn.onlinewebfonts.com/svg/img_412338.png">\
-        </div>\
+    '<div class="ui cards">\
+    <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
         <div class="content">\
-            <div class="header">Shipping Information</div>\
-            <div class="meta">\
-                <a></a>\
+            <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
+            <div class="header">\
+                Shipping Information\
             </div>\
-            <div class="description">\
-                <ul class="ui sub header" style="list-style: none;">'
-        + shipaddress
-        + carrier
-        + shipmethod
-        + shipdate
-        + custbody_lp_shipping_arrival_date
-        + shippingcost +
-        '</ul>\
+            <div class="meta">\
+                Friends of Veronika\
+            </div>\
+            <div class="extra content">\
+                <div class="description">'
+                + shipaddress
+                        + carrier
+                        + shipmethod
+                        + shipdate
+                        + custbody_lp_shipping_arrival_date
+                        + shippingcost +
+                '</div>\
             </div>\
         </div>\
-    </div>';
+        <div class="extra content">\
+        </div>\
+    </div>\
+    <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
+        <div class="content">\
+            <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
+            <div class="header">\
+                Order Status\
+            </div>\
+            <div class="meta">\
+                New Member\
+            </div>\
+            <div class="extra content">\
+                <div class="description">\
+                    Jenny wants to add you to the group <b>best friends</b>\
+                </div>\
+            </div>\
+        </div>\
+        <div class="extra content">\
+        </div>\
+    </div>\
+</div>'
     return card;
 };
 
@@ -366,3 +388,32 @@ console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0]);
 //         </div>\
 //     </div>';
 //     return card;
+
+
+
+
+
+
+// '<div class="card" style="margin-top: 30px;">\
+//         <div class="image">\
+//             <img src="https://cdn.onlinewebfonts.com/svg/img_412338.png">\
+//         </div>\
+//         <div class="content">\
+//             <div class="header">Shipping Information</div>\
+//             <div class="meta">\
+//                 <a></a>\
+//             </div>\
+//             <div class="description">\
+//                 <ul class="ui sub header" style="list-style: none;">'
+//         + shipaddress
+//         + carrier
+//         + shipmethod
+//         + shipdate
+//         + custbody_lp_shipping_arrival_date
+//         + shippingcost +
+//         '</ul>\
+//             </div>\
+//         </div>\
+//     </div>';
+
+
