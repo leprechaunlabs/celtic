@@ -75,41 +75,43 @@ function appendCostSummary(data) {
     var total = "";
 
     if (valuePresent(data.data[0].subtotal)) {
-        subtotal = '<li>subtotal<p>' + data.data[0].subtotal + '</p></li>'
+        subtotal = '<p>subtotal: ' + data.data[0].subtotal + '</p>'
     }
     if (valuePresent(data.data[0].taxtotal)) {
-        taxtotal = '<li>TAX total<p>' + data.data[0].taxtotal + '</p></li>'
+        taxtotal = '<p>TAX total: ' + data.data[0].taxtotal + '</p>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<li>ESTIMATED SHIPPING COST<p>' + data.data[0].shippingcost + '</p></li>'
+        shippingcost = '<p>ESTIMATED SHIPPING COST: ' + data.data[0].shippingcost + '</p>'
     }
     if (valuePresent(data.data[0].handlingcost)) {
-        handlingcost = '<li>HANDLING COST<p>' + data.data[0].handlingcost + '</p></li>'
+        handlingcost = '<p>HANDLING COST: ' + data.data[0].handlingcost + '</p>'
     }
     if (valuePresent(data.data[0].total)) {
-        total = '<li>total<p>' + data.data[0].total + '</p></li>'
+        total = '<p>total: ' + data.data[0].total + '</p>'
     }
     var card =
-        '<div class="card" style="margin-top: 30px;">\
-        <div class="image">\
-            <img src="https://image.flaticon.com/icons/png/512/126/126249.png">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
+    <div class="content">\
+        <i class="dollar sign icon right floated" style="font-size: 1.9em;"></i>\
+        <div class="header">\
+        Cost Summary\
         </div>\
-        <div class="content">\
-            <div class="header">Cost Summary</div>\
-            <div class="meta">\
-                <a></a>\
-            </div>\
-            <div class="description">\
-                <ul class="ui sub header" style="list-style: none;">'
-        + subtotal
-        + taxtotal
-        + shippingcost
-        + handlingcost
-        + total +
-        '</ul>\
-            </div>\
+        <div class="meta">\
+            Friends of Veronika\
         </div>\
-    </div>';
+        <div class="extra content">\
+            <div class="description">'
+            + subtotal
+            + taxtotal
+            + shippingcost
+            + handlingcost
+            + total +
+                '</div>\
+        </div>\
+    </div>\
+    <div class="extra content">\
+    </div>\
+</div>';
     return card;
 };
 
