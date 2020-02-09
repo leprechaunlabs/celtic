@@ -2,6 +2,7 @@ var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/sc
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
+    $(".horizontalCards").empty();
     $("#loader").empty();
     $("#loader").append(
         '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
@@ -331,53 +332,5 @@ function appendStatus(data) {
 };
 
 console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0]);
-
-// '<div class="card"  style="margin-top: 30px;" >\
-//         <div class="image">\
-//             <img src="https://cdn.onlinewebfonts.com/svg/img_226626.png">\
-//         </div>\
-//         <div class="content">\
-//             <div class="header">Order Numbers</div>\
-//             <div class="meta">\
-//                 <a></a>\
-//             </div>\
-//             <div class="description">\
-//                 <ul class="ui sub header" style="list-style: none;">'
-//         + entity
-//         + tranid
-//         + otherrefnum
-//         + saleseffectivedate +
-//         '</ul>\
-//             </div>\
-//         </div>\
-//     </div>';
-//     return card;
-
-
-
-
-
-
-// '<div class="card" style="margin-top: 30px;">\
-//         <div class="image">\
-//             <img src="https://cdn.onlinewebfonts.com/svg/img_412338.png">\
-//         </div>\
-//         <div class="content">\
-//             <div class="header">Shipping Information</div>\
-//             <div class="meta">\
-//                 <a></a>\
-//             </div>\
-//             <div class="description">\
-//                 <ul class="ui sub header" style="list-style: none;">'
-//         + shipaddress
-//         + carrier
-//         + shipmethod
-//         + shipdate
-//         + custbody_lp_shipping_arrival_date
-//         + shippingcost +
-//         '</ul>\
-//             </div>\
-//         </div>\
-//     </div>';;
 
 
