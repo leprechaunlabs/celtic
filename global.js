@@ -50,18 +50,39 @@ function appendOrderNumbers(data) {
         var str = data.data[0].entity;
         var pattern = /(^\S+\s)/g;
         var entityname = str.replace(pattern, "");
-        entity = '<li>entity:<p>' + entityname + '</p></li>'
+        entity = '<p>entity: ' + entityname + '</p><hr>'
     }
     if (valuePresent(data.data[0].tranid)) {
-        tranid = '<li>JOB NUMBER:<p>' + data.data[0].tranid + '</p></li>'
+        tranid = '<p>JOB NUMBER: ' + data.data[0].tranid + '</p><hr>'
     }
     if (valuePresent(data.data[0].otherrefnum)) {
-        otherrefnum = '<li>PO NUMBER<p>' + data.data[0].otherrefnum + '</p></li>'
+        otherrefnum = '<p>PO NUMBER ' + data.data[0].otherrefnum + '</p><hr>'
     }
     if (valuePresent(data.data[0].saleseffectivedate)) {
-        saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
+        saleseffectivedate = '<p>ORDER DATE: ' + data.data[0].saleseffectivedate + '</p><hr>'
     }
-    var card =""
+    var card =
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 4em .5em;">\
+    <div class="content">\
+        <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
+        <div class="header">\
+        Order Numbers\
+        </div>\
+        <div class="meta">\
+            Friends of Veronika\
+        </div>\
+        <div class="extra content">\
+            <div class="description">'
+        + entity
+        + tranid
+        + otherrefnum
+        + saleseffectivedate +
+                '</div>\
+        </div>\
+    </div>\
+    <div class="extra content">\
+    </div>\
+</div>'
 return card;    
 };
 
