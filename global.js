@@ -63,26 +63,65 @@ function appendOrderNumbers(data) {
         saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
     var card =
-        '<div class="card"  style="margin-top: 30px;" >\
-        <div class="image">\
-            <img src="https://cdn.onlinewebfonts.com/svg/img_226626.png">\
-        </div>\
+    '<div class="ui cards">\
+    <div class="card">\
         <div class="content">\
-            <div class="header">Order Numbers</div>\
+            <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">\
+            <div class="header">\
+                Elliot Fu\
+            </div>\
             <div class="meta">\
-                <a></a>\
+                Friends of Veronika\
             </div>\
             <div class="description">\
-                <ul class="ui sub header" style="list-style: none;">'
-        + entity
-        + tranid
-        + otherrefnum
-        + saleseffectivedate +
-        '</ul>\
+                <div class="ui raised card">\
+                    <div class="content">\
+                        <div class="header">Cute Dog</div>\
+                        <div class="meta">\
+                            <span class="category">Animals</span>\
+                        </div>\
+                        <div class="description">\
+                            <p></p>\
+                        </div>\
+                    </div>\
+                    <div class="extra content">\
+                        <div class="right floated author">\
+                            <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt\
+                        </div>\
+                    </div>\
+                </div>\
+                Elliot requested permission to view your contact details\
             </div>\
         </div>\
-    </div>';
-    return card;
+        <div class="extra content">\
+            <div class="ui two buttons">\
+                <div class="ui basic green button">Approve</div>\
+                <div class="ui basic red button">Decline</div>\
+            </div>\
+        </div>\
+    </div>\
+    <div class="card">\
+        <div class="content">\
+            <img class="right floated mini ui image" src="/images/avatar/large/jenny.jpg">\
+            <div class="header">\
+                Jenny Hess\
+            </div>\
+            <div class="meta">\
+                New Member\
+            </div>\
+            <div class="description">\
+                Jenny wants to add you to the group <b>best friends</b>\
+            </div>\
+        </div>\
+        <div class="extra content">\
+            <div class="ui two buttons">\
+                <div class="ui basic green button">Approve</div>\
+                <div class="ui basic red button">Decline</div>\
+            </div>\
+        </div>\
+    </div>\
+</div>'
+return card;    
 };
 
 function appendCostSummary(data) {
@@ -324,3 +363,27 @@ function appendStatus(data) {
 };
 
 console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0].innerText);
+
+
+
+
+// '<div class="card"  style="margin-top: 30px;" >\
+//         <div class="image">\
+//             <img src="https://cdn.onlinewebfonts.com/svg/img_226626.png">\
+//         </div>\
+//         <div class="content">\
+//             <div class="header">Order Numbers</div>\
+//             <div class="meta">\
+//                 <a></a>\
+//             </div>\
+//             <div class="description">\
+//                 <ul class="ui sub header" style="list-style: none;">'
+//         + entity
+//         + tranid
+//         + otherrefnum
+//         + saleseffectivedate +
+//         '</ul>\
+//             </div>\
+//         </div>\
+//     </div>';
+//     return card;
