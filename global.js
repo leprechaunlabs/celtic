@@ -62,47 +62,8 @@ function appendOrderNumbers(data) {
     if (valuePresent(data.data[0].saleseffectivedate)) {
         saleseffectivedate = '<li>ORDER DATE<p>' + data.data[0].saleseffectivedate + '</p></li>'
     }
-    var card =
-    '<div class="ui cards">\
-    <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
-        <div class="content">\
-            <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
-            <div class="header">\
-                Shipping Information\
-            </div>\
-            <div class="meta">\
-                Friends of Veronika\
-            </div>\
-            <div class="extra content">\
-                <div class="description">\
-                    <div class="ui two buttons">\
-                        Elliot requested permission to view your contact details\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
-        <div class="extra content">\
-        </div>\
-    </div>\
-    <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
-        <div class="content">\
-            <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
-            <div class="header">\
-                Order Status\
-            </div>\
-            <div class="meta">\
-                New Member\
-            </div>\
-            <div class="extra content">\
-                <div class="description">\
-                    Jenny wants to add you to the group <b>best friends</b>\
-                </div>\
-            </div>\
-        </div>\
-        <div class="extra content">\
-        </div>\
-    </div>\
-</div>'
+    var card =""
+    
 return card;    
 };
 
@@ -182,47 +143,27 @@ function appendShippingInformation(data) {
 
 
     var card =
-    '<div class="ui cards">\
-    <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
-        <div class="content">\
-            <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
-            <div class="header">\
-                Shipping Information\
-            </div>\
-            <div class="meta">\
-                Friends of Veronika\
-            </div>\
-            <div class="extra content">\
-                <div class="description">'
-                    + shipaddress+'<hr>'
-                    + carrier+'<hr>'
-                    + shipmethod+'<hr>'
-                    + shipdate+'<hr>'
-                    + custbody_lp_shipping_arrival_date+'<hr>'
-                    + shippingcost+'<hr>'+
-                    '</div>\
-            </div>\
+   '<div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
+    <div class="content">\
+        <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
+        <div class="header">\
+            Shipping Information\
+        </div>\
+        <div class="meta">\
+            Friends of Veronika\
         </div>\
         <div class="extra content">\
+            <div class="description">'
+                + shipaddress+'<hr>'
+                + carrier+'<hr>'
+                + shipmethod+'<hr>'
+                + shipdate+'<hr>'
+                + custbody_lp_shipping_arrival_date+'<hr>'
+                + shippingcost+'<hr>'+
+                '</div>\
         </div>\
     </div>\
-    <div class="card" style="width: 400px; font-size:1.5em; margin: 5em 1.5em;">\
-        <div class="content">\
-            <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
-            <div class="header">\
-                Order Status\
-            </div>\
-            <div class="meta">\
-                New Member\
-            </div>\
-            <div class="extra content">\
-                <div class="description">\
-                    Jenny wants to add you to the group <b>best friends</b>\
-                </div>\
-            </div>\
-        </div>\
-        <div class="extra content">\
-        </div>\
+    <div class="extra content">\
     </div>\
 </div>'
     return card;
