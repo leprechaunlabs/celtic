@@ -82,7 +82,7 @@ function appendOrderNumbers(data) {
         Order Numbers\
         </div>\
         <div class="meta">\
-            Friends of Veronika\
+            <br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
@@ -129,7 +129,7 @@ function appendCostSummary(data) {
         Cost Summary\
         </div>\
         <div class="meta">\
-            Friends of Veronika\
+            <br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
@@ -185,7 +185,7 @@ function appendShippingInformation(data) {
             Shipping Information\
         </div>\
         <div class="meta">\
-            Friends of Veronika\
+            <br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
@@ -351,7 +351,7 @@ function appendStatus(data) {
             Order Status\
         </div>\
         <div class="meta">\
-            Friends of Veronika\
+            <br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
@@ -397,7 +397,7 @@ function status(data) {
             Status\
         </div>\
         <div class="meta">\
-            Friends of Veronika\
+            <br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
