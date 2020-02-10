@@ -373,9 +373,7 @@ function status(data) {
     var status = "Order is Pending";
     
     if (valuePresent(data.data[0].status.text_status))
-    {
-        status = data.data[0].status.text_status;
-    }
+    {status = data.data[0].status.text_status};
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
