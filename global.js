@@ -370,25 +370,6 @@ function appendStatus(data) {
 };
 
 function status(data) {
-    var queuedForPrinting= "";
-    
-    var artwork_setup = data.data[0].custbody_lp_status_artwork_setup;
-    var stock = data.data[0].custbody_lp_status_stock;
-    var status_payment = data.data[0].custbody_lp_status_payment;
-    var approval_request = data.data[0].custbody_lp_status_approval_request;
-    //data.data[0].custbody_lp_approval_request
-
-    //   step one     1 art is complete 
-    //   step two     1 no stock issues or 3 resolved 
-    //   step three   1 Net Terms 2 On File  3 Received 7Credit Card
-    //   step 4       1 approved 
-    //   now queue for printing;
-        if(data.data[0].custbody_lp_status_artwork_setup=="1" & (data.data[0].custbody_lp_status_stock=="1"||data.data[0].custbody_lp_status_stock=="2")&
-        (data.data[0].custbody_lp_status_payment=="1"||data.data[0].custbody_lp_status_payment=="2"||data.data[0].custbody_lp_status_payment=="3"||
-        data.data[0].custbody_lp_status_payment=="7")&data.data[0].custbody_lp_approval_request=="1"){
-            queuedForPrinting="Queued for printing";
-        };
-    
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
@@ -401,7 +382,7 @@ function status(data) {
         </div>\
         <div class="extra content">\
             <div class="description">'
-            + queuedForPrinting+
+            +data.data[0].status.text_status+
                 '</div>\
         </div>\
     </div>\
