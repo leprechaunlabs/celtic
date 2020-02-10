@@ -219,8 +219,9 @@ function appendStatus(data) {
     var custbody_lp_status_artwork_setup = "";
     var custbody_lp_status_payment = "";
     var custbody_lp_status_approval_request = "";
+    var custbody_lp_approval_request="";
 
-
+   
     if (valuePresent(data.data[0].custbody_lp_status_stock)) {
         //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
         switch (data.data[0].custbody_lp_status_stock) {
@@ -306,6 +307,10 @@ function appendStatus(data) {
         };
     }
 
+    if (valuePresent(data.data[0].custbody_lp_approval_request)) {
+        custbody_lp_approval_request = '<div class="ui one buttons"><div class="ui basic green button"> Art Approval Request <a href="'+data.data[0].custbody_lp_approval_request+'">Visit W3Schools</a></div></div>';
+    }
+
 
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
@@ -326,8 +331,9 @@ function appendStatus(data) {
                 '</div>\
         </div>\
     </div>\
-    <div class="extra content">\
-    </div>\
+    <div class="extra content">'
+    +custbody_lp_approval_request+
+  '</div>\
 </div>'
     return card;
 };
