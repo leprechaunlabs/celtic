@@ -63,16 +63,16 @@ function appendOrderNumbers(data) {
         var str = data.data[0].entity;
         var pattern = /(^\S+\s)/g;
         var entityname = str.replace(pattern, "");
-        entity = '<p>entity: ' + entityname + '</p><hr>'
+        entity = '<p>Customer: ' + entityname + '</p><hr>'
     }
     if (valuePresent(data.data[0].tranid)) {
-        tranid = '<p>JOB NUMBER: ' + data.data[0].tranid + '</p><hr>'
+        tranid = '<p>Order Number: ' + data.data[0].tranid + '</p><hr>'
     }
     if (valuePresent(data.data[0].otherrefnum)) {
-        otherrefnum = '<p>PO NUMBER ' + data.data[0].otherrefnum + '</p><hr>'
+        otherrefnum = '<p>PO Number ' + data.data[0].otherrefnum + '</p><hr>'
     }
     if (valuePresent(data.data[0].saleseffectivedate)) {
-        saleseffectivedate = '<p>ORDER DATE: ' + data.data[0].saleseffectivedate + '</p><hr>'
+        saleseffectivedate = '<p>Order Date: ' + data.data[0].saleseffectivedate + '</p><hr>'
     }
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
@@ -107,19 +107,19 @@ function appendCostSummary(data) {
     var total = "";
 
     if (valuePresent(data.data[0].subtotal)) {
-        subtotal = '<p>subtotal: $' + data.data[0].subtotal + '</p> <hr>'
+        subtotal = '<p>Subtotal: $' + data.data[0].subtotal + '</p> <hr>'
     }
     if (valuePresent(data.data[0].taxtotal)) {
-        taxtotal = '<p>TAX total: $' + data.data[0].taxtotal + '</p> <hr>'
+        taxtotal = '<p>Tax Total: $' + data.data[0].taxtotal + '</p> <hr>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<p>ESTIMATED SHIPPING COST: $' + data.data[0].shippingcost + '</p> <hr>'
+        shippingcost = '<p>Estimated Shipping Cost: $' + data.data[0].shippingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].handlingcost)) {
-        handlingcost = '<p>HANDLING COST: $' + data.data[0].handlingcost + '</p> <hr>'
+        handlingcost = '<p>Handling Cost: $' + data.data[0].handlingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].total)) {
-        total = '<p>total: $' + data.data[0].total + '</p> <hr>'
+        total = '<p>Total: $' + data.data[0].total + '</p> <hr>'
     }
     var card =
     '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
@@ -158,22 +158,28 @@ function appendShippingInformation(data) {
 
     if (valuePresent(data.data[0].shipaddress)) {
         var address = data.data[0].shipaddress.replace(/\n/g, '<br>')
-        var shipaddress = '<p>SHIP TO: ' + address + '</p> <hr>' 
+        var shipaddress = '<p>Ship To: ' + address + '</p> <hr>' 
     }
     if (valuePresent(data.data[0].carrier)) {
-        var carrier = '<p>SHIPPING CARRIER: ' + data.data[0].carrier + '</p> <hr>'
+        if(data.data[0].carrier.toLowerCase()=="ups"){
+            var carrier = '<p>Shipping Carrier: ' + data.data[0].carrier + '</p> <i class="ups icon right floated"></i> <hr> '
+        }
+        if(data.data[0].carrier.toLowerCase()=="fedex"){
+            var carrier = '<p>Shipping Carrier: ' + data.data[0].carrier + '</p> <i class="fedex icon right floated"></i> <hr> '
+        }
+      
     }
     if (valuePresent(data.data[0].shipmethod)) {
-        shipmethod = '<p>SHIPPING METHOD: ' + data.data[0].shipmethod + '</p> <hr>'
+        shipmethod = '<p>Shipping Method: ' + data.data[0].shipmethod + '</p> <hr>'
     }
     if (valuePresent(data.data[0].shipdate)) {
-        shipdate = '<p>SHIP DATE: ' + data.data[0].shipdate + '</p> <hr>'
+        shipdate = '<p>Shipping Date: ' + data.data[0].shipdate + '</p> <hr>'
     }
     if (valuePresent(data.data[0].scheduled_custbody_lp_shipping_arrival_date)) {
-        custbody_lp_shipping_arrival_date = '<p>SHIP DATE: ' + data.data[0].scheduled_custbody_lp_shipping_arrival_date +'</p> <hr>'
+        custbody_lp_shipping_arrival_date = '<p>Estimated Arrival Date: ' + data.data[0].scheduled_custbody_lp_shipping_arrival_date +'</p> <hr>'
     }
     if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<p>ESTIMATED SHIPPING COST: $' + data.data[0].shippingcost +'</p> <hr>'
+        shippingcost = '<p>Estimated Shipping Cost: $' + data.data[0].shippingcost +'</p> <hr>'
     }
 
 
@@ -251,22 +257,22 @@ function appendStatus(data) {
         //1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork is complete</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p>Artwork Status: Artwork is complete</p><hr>'//dont show
                 break;
             case "2":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork being processed</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p>Artwork Status: Artwork being processed</p><hr>'//dont show
                 break;
             case "3":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: ArtWork being revised</p><hr>'
+                custbody_lp_status_artwork_setup = '<p>Artwork Status: ArtWork being revised</p><hr>'
                 break;
             case "4":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork issues</p><hr>'
+                custbody_lp_status_artwork_setup = '<p>Artwork Status: Artwork issues</p><hr>'
                 break;
             case "5":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: transferred</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p>Artwork Status: transferred</p><hr>'//dont show
                 break;
             case "6":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: pending transfer</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p>Artwork Status: pending transfer</p><hr>'//dont show
                 break;
             default:
         };
@@ -276,13 +282,13 @@ function appendStatus(data) {
         //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
         switch (data.data[0].custbody_lp_status_stock) {
             case "1":
-                custbody_lp_status_stock = '<p>STATUS STOCK: We have the stock to fulfill your order.</p><hr>'//dont show
+                custbody_lp_status_stock = '<p>Stock Status: We have the stock to fulfill your order.</p><hr>'//dont show
                 break;
             case "2":
-                custbody_lp_status_stock = '<p>STATUS STOCK: We have unresolved stock issues.</p><hr>'
+                custbody_lp_status_stock = '<p>Stock Status: We have unresolved stock issues.</p><hr>'
                 break;
             case "3":
-                custbody_lp_status_stock = '<p>STATUS STOCK: We have resolved stock issues</p><hr>'//dont show
+                custbody_lp_status_stock = '<p>Stock Status: We have resolved stock issues</p><hr>'//dont show
                 break;
             default:
         };
@@ -292,25 +298,25 @@ function appendStatus(data) {
         //1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no entity 7 credit card
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_payment = '<p>STATUS PAYMENT: Net Terms</p><hr>'
+                custbody_lp_status_payment = '<p>Payment Status: Net Terms</p><hr>'
                 break;
             case "2":
-                custbody_lp_status_payment = '<p>STATUS PAYMENT: On File</p><hr>'
+                custbody_lp_status_payment = '<p>Payment Status: On File</p><hr>'
                 break;
             case "3":
-                custbody_lp_status_payment = '<p>STATUS PAYMENT: Received</p><hr>'
+                custbody_lp_status_payment = '<p>Payment Status: Received</p><hr>'
                 break;
             case "4":
-                custbody_lp_status_payment = '<p>STATUS PAYMENT: Pending Request</p><hr>'
+                custbody_lp_status_payment = '<p>Payment Status: Pending Request</p><hr>'
                 break;
             case "5":
-                custbody_lp_status_payment = '<p>STATUS PAYMENT: Pending Response</p><hr>'
+                custbody_lp_status_payment = '<p>Payment Status: Pending Response</p><hr>'
                 break;
             case "6":
-                custbody_lp_status_payment = '<p>STATUS PAYMENT: No entity</p><hr>'
+                custbody_lp_status_payment = '<p>Payment Status: No entity</p><hr>'
                 break;
             case "7":
-                custbody_lp_status_payment = '<p>STATUS PAYMENT: Credit Card</p><hr>'
+                custbody_lp_status_payment = '<p>Payment Status: Credit Card</p><hr>'
                 break;
             default:
         };
@@ -319,16 +325,16 @@ function appendStatus(data) {
         //1 approved 2 revision requsted 3 pending request 4 pending response
         switch (data.data[0].custbody_lp_status_approval_request) {
             case "1":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: Approved</p><hr>' //dont show
+                custbody_lp_status_approval_request = '<p>Approval Status: Approved</p><hr>' //dont show
                 break;
             case "2":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: Revision Requested</p><hr>'
+                custbody_lp_status_approval_request = '<p>Approval Status: Revision Requested</p><hr>'
                 break;
             case "3":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: Pending Request</p><hr>'
+                custbody_lp_status_approval_request = '<p>Approval Status: Pending Request</p><hr>'
                 break;
             case "4":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: Pending Response</p><hr>'
+                custbody_lp_status_approval_request = '<p>Approval Status: Pending Response</p><hr>'
                 break;
             default:
         };
