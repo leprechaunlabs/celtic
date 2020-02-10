@@ -162,10 +162,10 @@ function appendShippingInformation(data) {
     }
     if (valuePresent(data.data[0].carrier)) {
         if(data.data[0].carrier.toLowerCase()=="ups"){
-            var carrier = '<p>Shipping Carrier: <i class="ups icon right floated"></i> </p>  <hr> '
+            var carrier = '<p>Shipping Carrier: <i  style="font-size: 2.5em;" class="ups icon"></i> </p>  <hr> '
         }
         else if(data.data[0].carrier.toLowerCase()=="fedex"){
-            var carrier = '<p style="display:inline">Shipping Carrier: <i class="fedex icon right floated"></i></p>  <hr> '
+            var carrier = '<p style="display:inline">Shipping Carrier: <i style="font-size: 2.5em;" class="fedex icon"></i></p>  <hr> '
         }
         else{
             var carrier = '<p >Shipping Carrier: ' + data.data[0].carrier + '</p><hr> '
