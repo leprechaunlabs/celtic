@@ -309,11 +309,9 @@ function appendStatus(data) {
 
     if (valuePresent(data.data[0].custbody_lp_approval_request)) {
         custbody_lp_approval_request = 
-       '<p>Approval Link: \
-            <div class="positive ui button">\
+       '<p style="display:inline-block;">Approval Link: </p>\<div class="positive ui button">\
                 <a href="'+data.data[0].custbody_lp_approval_request+'">Art Approval Request</a>\
              </div>\
-        </p>\
         <hr>'
     };
 
