@@ -13,7 +13,7 @@ $("#button-order-status-modal").click(function () {
         $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         $("#loader").empty();
-        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),];
+        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data),status(data)];
         appending.forEach(element => $(".horizontalCards").append(element));
     });
 });
@@ -215,36 +215,37 @@ function appendStatus(data) {
     <custbody_lp_custbody_lp_status_stock>1</custbody_lp_custbody_lp_status_stock> production is stock status and values 1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved 
     */
 
+
+    // if{
+    //   step one     1 art is complete 
+    //   step two     1 no stock issues or 3 resolved 
+    //   step three   1 Net Terms 2 On File  3 Received 7Credit Card
+    //   step 4       1 approved 
+    //   now queue for printing;
+    // }
+
+    // if{
+    //     step one    2 being processed, 3 being revised, 4 art issues
+    //     step two    
+    // }
+
+
+
+
     var custbody_lp_status_stock = "";
     var custbody_lp_status_artwork_setup = "";
     var custbody_lp_status_payment = "";
     var custbody_lp_status_approval_request = "";
     var custbody_lp_approval_request="";
 
-   
-    if (valuePresent(data.data[0].custbody_lp_status_stock)) {
-        //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
-        switch (data.data[0].custbody_lp_status_stock) {
-            case "1":
-                custbody_lp_status_stock = '<p>STATUS STOCK: We have the stock to fulfill your order.</p><hr>'
-                break;
-            case "2":
-                custbody_lp_status_stock = '<p>STATUS STOCK: We have unresolved stock issues.</p><hr>'
-                break;
-            case "3":
-                custbody_lp_status_stock = '<p>STATUS STOCK: We have resolved stock issues</p><hr>'
-                break;
-            default:
-        };
-    }
     if (valuePresent(data.data[0].custbody_lp_status_artwork_setup)) {
         //1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork is complete</p><hr>'
+                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork is complete</p><hr>'//dont show
                 break;
             case "2":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork being processed</p><hr>'
+                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork being processed</p><hr>'//dont show
                 break;
             case "3":
                 custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: ArtWork being revised</p><hr>'
@@ -253,14 +254,31 @@ function appendStatus(data) {
                 custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: Artwork issues</p><hr>'
                 break;
             case "5":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: transferred</p><hr>'
+                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: transferred</p><hr>'//dont show
                 break;
             case "6":
-                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: pending transfer</p><hr>'
+                custbody_lp_status_artwork_setup = '<p>STATUS ARTWORK: pending transfer</p><hr>'//dont show
                 break;
             default:
         };
     }
+   
+    if (valuePresent(data.data[0].custbody_lp_status_stock)) {
+        //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
+        switch (data.data[0].custbody_lp_status_stock) {
+            case "1":
+                custbody_lp_status_stock = '<p>STATUS STOCK: We have the stock to fulfill your order.</p><hr>'//dont show
+                break;
+            case "2":
+                custbody_lp_status_stock = '<p>STATUS STOCK: We have unresolved stock issues.</p><hr>'
+                break;
+            case "3":
+                custbody_lp_status_stock = '<p>STATUS STOCK: We have resolved stock issues</p><hr>'//dont show
+                break;
+            default:
+        };
+    }
+    
     if (valuePresent(data.data[0].custbody_lp_status_payment)) {
         //1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no entity 7 credit card
         switch (data.data[0].custbody_lp_status_artwork_setup) {
@@ -292,7 +310,7 @@ function appendStatus(data) {
         //1 approved 2 revision requsted 3 pending request 4 pending response
         switch (data.data[0].custbody_lp_status_approval_request) {
             case "1":
-                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: Approved</p><hr>'
+                custbody_lp_status_approval_request = '<p>STATUS APPROVAL: Approved</p><hr>' //dont show
                 break;
             case "2":
                 custbody_lp_status_approval_request = '<p>STATUS APPROVAL: Revision Requested</p><hr>'
@@ -342,6 +360,48 @@ function appendStatus(data) {
     return card;
 };
 
-console.log(document.querySelectorAll('.displaynone .dcLoginCartBarName')[0]);
+function status(data) {
+    var queuedForPrinting= "";
+    
+    var artwork_setup = data.data[0].custbody_lp_status_artwork_setup;
+    var stock = data.data[0].custbody_lp_status_stock;
+    var status_payment = data.data[0].custbody_lp_status_payment;
+    var approval_request = data.data[0].custbody_lp_status_approval_request;
+    //data.data[0].custbody_lp_approval_request
+
+    //   step one     1 art is complete 
+    //   step two     1 no stock issues or 3 resolved 
+    //   step three   1 Net Terms 2 On File  3 Received 7Credit Card
+    //   step 4       1 approved 
+    //   now queue for printing;
+        if(data.data[0].custbody_lp_status_artwork_setup=="1" & (data.data[0].custbody_lp_status_stock=="1"||data.data[0].custbody_lp_status_stock=="2")&
+        (data.data[0].custbody_lp_status_payment=="1"||data.data[0].custbody_lp_status_payment=="2"||data.data[0].custbody_lp_status_payment=="3"||
+        data.data[0].custbody_lp_status_payment=="7")&data.data[0].custbody_lp_approval_request=="1"){
+            queuedForPrinting="Queued for printing";
+        };
+    
+    var card =
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+    <div class="content">\
+        <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
+        <div class="header">\
+            Status\
+        </div>\
+        <div class="meta">\
+            Friends of Veronika\
+        </div>\
+        <div class="extra content">\
+            <div class="description">'
+            + queuedForPrinting+
+                '</div>\
+        </div>\
+    </div>\
+    <div class="extra content">'
+  '</div>\
+</div>'
+    return card;
+};
+
+
 
 
