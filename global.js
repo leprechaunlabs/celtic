@@ -311,7 +311,7 @@ function appendStatus(data) {
         custbody_lp_approval_request = 
         '<div class="ui one buttons">\
             <div class="ui basic green button">\
-                <ahref="'+data.data[0].custbody_lp_approval_request+'">Art Approval Request</a>\
+                <a href="'+data.data[0].custbody_lp_approval_request+'">Art Approval Request</a>\
             </div>\
          </div>\
         <hr>';
