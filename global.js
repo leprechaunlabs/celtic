@@ -308,7 +308,7 @@ function appendStatus(data) {
     }
 
     if (valuePresent(data.data[0].custbody_lp_approval_request)) {
-        custbody_lp_approval_request = '<div class="ui one buttons"><div class="ui basic green button"> Art Approval Request <a href="'+data.data[0].custbody_lp_approval_request+'">Visit W3Schools</a></div></div>';
+        custbody_lp_approval_request = '<div class="ui one buttons"><div class="ui basic green button"> Art Approval Request <a href="'+data.data[0].custbody_lp_approval_request+'"></a></div></div><hr>';
     }
 
 
@@ -327,12 +327,12 @@ function appendStatus(data) {
             + custbody_lp_status_stock
             + custbody_lp_status_artwork_setup
             + custbody_lp_status_payment
-            + custbody_lp_status_approval_request +
+            + custbody_lp_status_approval_request 
+            +custbody_lp_approval_request+
                 '</div>\
         </div>\
     </div>\
     <div class="extra content">'
-    +custbody_lp_approval_request+
   '</div>\
 </div>'
     return card;
