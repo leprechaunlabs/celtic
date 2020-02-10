@@ -157,7 +157,7 @@ function appendShippingInformation(data) {
     var shippingcost = "";
 
     if (valuePresent(data.data[0].shipaddress)) {
-        var address = data.data[0].shipaddress.replace("\n", "<br>")
+        var address = data.data[0].shipaddress.replace('\n', '<br>')
         var shipaddress = '<p>SHIP TO: ' + address + '</p> <hr>' 
     }
     if (valuePresent(data.data[0].carrier)) {
