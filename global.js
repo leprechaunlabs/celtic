@@ -4,12 +4,14 @@ var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 $("#button-order-status-modal").click(function () {
     $(".horizontalCards").empty();
     $("#loader").empty();
+    $("#header_modal").empty();
     $("#loader").append(
         '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
         $('.ui.modal')
         .modal('show');
     $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
         console.log(data);
+        $("#header_modal").append("Welcome "+entity(data));
         $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         $("#loader").empty();
@@ -17,6 +19,15 @@ $("#button-order-status-modal").click(function () {
         appending.forEach(element => $(".horizontalCards").append(element));
     });
 });
+
+function entity(data){
+    var entity ="";
+    var str = data.data[0].entity;
+    var pattern = /(^\S+\s)/g;
+    var entityname = str.replace(pattern, "");
+    entity = '<p>'+ entityname + '</p>'
+return entity;
+};
 
 document.querySelector("#button-order-status-page").addEventListener("click", function (event) {
     var jobNumber = document.getElementById("input-job-number").value
@@ -228,9 +239,6 @@ function appendStatus(data) {
     //     step one    2 being processed, 3 being revised, 4 art issues
     //     step two    
     // }
-
-
-
 
     var custbody_lp_status_stock = "";
     var custbody_lp_status_artwork_setup = "";
