@@ -382,7 +382,7 @@ function status(data) {
         </div>\
         <div class="extra content">\
             <div class="description">'
-            +data.data[0].status.text_status+
+            +data.data[1].status.text_status+
                 '</div>\
         </div>\
     </div>\
