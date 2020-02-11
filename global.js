@@ -340,7 +340,7 @@ function appendStatus(data) {
 };
 
 function status(data) {
-    var status = "Order is Pending";
+    var status = "Order Is Pending";
 
     if (valuePresent(data.data[0].status.text_status)) { status = data.data[0].status.text_status };
     var card =
