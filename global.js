@@ -15,7 +15,7 @@ $("#button-order-status-modal").click(function () {
         $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         $("#loader").empty();
-        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data)];
+        var appending = [appendOrderNumbers(data), /*appendCostSummary(data),*/ appendShippingInformation(data), appendStatus(data)];
         appending.forEach(element => $(".horizontalCards").append(element));
     });
 });
@@ -29,11 +29,11 @@ function entity(data) {
     return entity;
 };
 
-document.querySelector("#button-order-status-page").addEventListener("click", function (event) {
-    var jobNumber = document.getElementById("input-job-number").value
-    window.location.href = buildOrderStatusURL(jobNumber);
-    event.preventDefault();
-}, false);
+// document.querySelector("#button-order-status-page").addEventListener("click", function (event) {
+//     var jobNumber = document.getElementById("input-job-number").value
+//     window.location.href = buildOrderStatusURL(jobNumber);
+//     event.preventDefault();
+// }, false);
 
 function jobNumberOBJ() {
     let jobNumber = {
@@ -99,53 +99,53 @@ function appendOrderNumbers(data) {
     return card;
 };
 
-function appendCostSummary(data) {
-    var subtotal = "";
-    var taxtotal = "";
-    var shippingcost = "";
-    var handlingcost = "";
-    var total = "";
+// function appendCostSummary(data) {
+//     var subtotal = "";
+//     var taxtotal = "";
+//     var shippingcost = "";
+//     var handlingcost = "";
+//     var total = "";
 
-    if (valuePresent(data.data[0].subtotal)) {
-        subtotal = '<p><b>Subtotal:</b> $' + data.data[0].subtotal + '</p> <hr>'
-    }
-    if (valuePresent(data.data[0].taxtotal)) {
-        taxtotal = '<p><b>Tax Total:</b> $' + data.data[0].taxtotal + '</p> <hr>'
-    }
-    if (valuePresent(data.data[0].shippingcost)) {
-        shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
-    }
-    if (valuePresent(data.data[0].handlingcost)) {
-        handlingcost = '<p><b>Handling Cost:</b> $' + data.data[0].handlingcost + '</p> <hr>'
-    }
-    if (valuePresent(data.data[0].total)) {
-        total = '<p><b>Total:</b> $' + data.data[0].total + '</p> <hr>'
-    }
-    var card =
-        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-    <div class="content">\
-        <i class="dollar sign icon right floated" style="font-size: 1.9em;"></i>\
-        <div class="header">\
-        Cost Summary\
-        </div>\
-        <div class="meta">\
-            <br>\
-        </div>\
-        <div class="extra content">\
-            <div class="description">'
-        + subtotal
-        + taxtotal
-        + shippingcost
-        + handlingcost
-        + total +
-        '</div>\
-        </div>\
-    </div>\
-    <div class="extra content">\
-    </div>\
-</div>';
-    return card;
-};
+//     if (valuePresent(data.data[0].subtotal)) {
+//         subtotal = '<p><b>Subtotal:</b> $' + data.data[0].subtotal + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].taxtotal)) {
+//         taxtotal = '<p><b>Tax Total:</b> $' + data.data[0].taxtotal + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].shippingcost)) {
+//         shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].handlingcost)) {
+//         handlingcost = '<p><b>Handling Cost:</b> $' + data.data[0].handlingcost + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].total)) {
+//         total = '<p><b>Total:</b> $' + data.data[0].total + '</p> <hr>'
+//     }
+//     var card =
+//         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+//     <div class="content">\
+//         <i class="dollar sign icon right floated" style="font-size: 1.9em;"></i>\
+//         <div class="header">\
+//         Cost Summary\
+//         </div>\
+//         <div class="meta">\
+//             <br>\
+//         </div>\
+//         <div class="extra content">\
+//             <div class="description">'
+//         + subtotal
+//         + taxtotal
+//         + shippingcost
+//         + handlingcost
+//         + total +
+//         '</div>\
+//         </div>\
+//     </div>\
+//     <div class="extra content">\
+//     </div>\
+// </div>';
+//     return card;
+// };
 
 function appendShippingInformation(data) {
     var shipaddress = "";
