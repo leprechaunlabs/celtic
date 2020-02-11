@@ -184,8 +184,8 @@ function appendShippingInformation(data) {
     if (valuePresent(data.data[0].shippingcost)) {
         shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
     }
-    if (valuePresent(data.data[0].linkedtrakingnumbers)) {
-        tracking_number = '<p><b>Tracking Number:</b> ' + data.data[0].linkedtrakingnumbers + '</p> <hr>'
+    if (valuePresent(data.data[0].linkedtrackingnumbers)) {
+        tracking_number = '<p><b>Tracking Number:</b> ' + data.data[0].linkedtrackingnumbers + '</p> <hr>'
         if (data.data[0].carrier.toLowerCase() == "ups") {
             var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums="'+data.data[0].linkedtrakingnumbers+'>'+data.data[0].linkedtrakingnumbers+'</a><hr>'
         }
