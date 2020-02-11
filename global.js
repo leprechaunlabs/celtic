@@ -94,7 +94,7 @@ function jobNumberOBJ() {
     var jobNumberInput = document.getElementById("input-job-number").value;
     jobNumberInput = jobNumberInput.replace(/-/g, "");
     jobNumberInput = jobNumberInput.replace(/ /g, "");
-    jobNumberInput = jobNumberInput.splice(2, 0, '-');
+    jobNumberInput = jobNumberInput.splice(2, 0, "-");
     let jobNumber = {
         jobNumber: jobNumberInput
     };
