@@ -62,7 +62,7 @@ function is_valid_input(input) {
     var validating_input = input.replace(/-/g, "").replace();
     console.log(validating_input)
 
-    validating_input = validating_input.replace(/^[" "]+$/g, "")
+    validating_input = validating_input.replace(/ /g, "")
     console.log(validating_input)
     
     var validating_input_length = validating_input.length;
