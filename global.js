@@ -185,12 +185,15 @@ function appendShippingInformation(data) {
         shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].linkedtrackingnumbers)) {
-        tracking_number = '<p><b>Tracking Number:</b> ' + data.data[0].linkedtrackingnumbers + '</p> <hr>'
+        var master_tracking_number = data.data[0].linkedtrackingnumbers.split(" ",1);
+
+        tracking_number = '<p><b>Tracking Number:</b> ' + master_tracking_number + '</p> <hr>'
+
         if (data.data[0].carrier.toLowerCase() == "ups") {
-            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums='+data.data[0].linkedtrackingnumbers+'">'+data.data[0].linkedtrackingnumbers+'</a><hr>'
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums='+master_tracking_number+'">'+master_tracking_number+'</a><hr>'
         }
         if (data.data[0].carrier.toLowerCase() == "fedex") {
-            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://www.fedex.com/Tracking?tracknumbers='+data.data[0].linkedtrackingnumbers+'">'+data.data[0].linkedtrackingnumbers+'</a><hr>'
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://www.fedex.com/Tracking?tracknumbers='+master_tracking_number+'">'+master_tracking_number+'</a><hr>'
         }
     }
 
@@ -231,7 +234,7 @@ function appendStatus(data) {
     var custbody_lp_approval_request = "";
 
     if (valuePresent(data.data[0].custbody_lp_status_artwork_setup)) {
-        //1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
+       
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
                 custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> Artwork is complete</p><hr>'//dont show
