@@ -30,9 +30,9 @@ function is_valid_input(input){
   var validating_input = input.replace(/-/g,"").replace();
   validating_input = validating_input.replace(/" "/g, "")
   var validating_input_length = validating_input.length;
-  if(validating_input_length!==7 & !validating_input.match(match_number) ){
-      return false;
-  }else return true;
+  if(validating_input_length==7 & validating_input.match(match_number) ){
+      return true;
+  }else return false;
 }
 
 function entity(data) {
