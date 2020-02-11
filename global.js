@@ -3,36 +3,67 @@ var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
     var input = document.getElementById('input-job-number').value;
-   if(is_valid_input(input)){
-    $(".horizontalCards").empty();
-    $("#loader").empty();
-    $("#header_modal").empty();
-    $("#loader").append(
-        '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
-    $('.ui.modal')
-        .modal('show');
-    $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
-        console.log(data);
-        $("#header_modal").append("Welcome " + entity(data));
+    if (is_valid_input(input)) {
         $(".horizontalCards").empty();
-        document.getElementById('input-job-number').value = "";
         $("#loader").empty();
-        var appending = [appendOrderNumbers(data), /*appendCostSummary(data),*/ appendShippingInformation(data), appendStatus(data)];
-        appending.forEach(element => $(".horizontalCards").append(element));
-    });
-   }
-   else {alert("You Entered Order Number "+input+" This Is Incorrect.")}
-   
+        $("#header_modal").empty();
+        $("#loader").append(
+            '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
+        $('.ui.modal')
+            .modal('show');
+        $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
+            console.log(data);
+            if (data.data[0].has_data == "true") {
+                $("#header_modal").append("Welcome " + entity(data));
+                $(".horizontalCards").empty();
+                document.getElementById('input-job-number').value = "";
+                $("#loader").empty();
+                var appending = [appendOrderNumbers(data), /*appendCostSummary(data),*/ appendShippingInformation(data), appendStatus(data)];
+                appending.forEach(element => $(".horizontalCards").append(element));
+            } else { no_data_card() }
+
+        });
+    }
+    else { alert("You Entered Order Number " + input + " This Is Incorrect.") }
+
 
 });
-function is_valid_input(input){
-  var match_number = /^[0-9]+$/g;
-  var validating_input = input.replace(/-/g,"").replace();
-  validating_input = validating_input.replace(/" "/g, "")
-  var validating_input_length = validating_input.length;
-  if(validating_input_length==7 & validating_input.match(match_number) ){
-      return true;
-  }else return false;
+
+function no_data_card() {
+   var message = "<p>We apologize for the inconvenience, but we can't find your order number.</p>";
+   var contact = "<p>Please contact Leprechaun Promotions. </p>";
+    var card =
+        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+        <div class="content">\
+            <i class="list alternate outline icon right floated" style="font-size: 1.9em;"></i>\
+            <div class="header">\
+            Order Number Not Found\
+            </div>\
+            <div class="meta">\
+                <br>\
+            </div>\
+            <div class="extra content">\
+                <div class="description">'
+                +message
+                +contact+
+            '</div>\
+            </div>\
+        </div>\
+        <div class="extra content">\
+        </div>\
+    </div>';
+    $(".horizontalCards").append(card);
+};
+
+
+function is_valid_input(input) {
+    var match_number = /^[0-9]+$/g;
+    var validating_input = input.replace(/-/g, "").replace();
+    validating_input = validating_input.replace(/" "/g, "")
+    var validating_input_length = validating_input.length;
+    if (validating_input_length == 7 & validating_input.match(match_number)) {
+        return true;
+    } else return false;
 }
 
 function entity(data) {
@@ -200,19 +231,19 @@ function appendShippingInformation(data) {
         shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
     }
     if (valuePresent(data.data[0].linkedtrackingnumbers)) {
-        var master_tracking_number = data.data[0].linkedtrackingnumbers.split(" ",1);
+        var master_tracking_number = data.data[0].linkedtrackingnumbers.split(" ", 1);
 
         tracking_number = '<p><b>Tracking Number:</b> ' + master_tracking_number + '</p> <hr>'
 
         if (data.data[0].carrier.toLowerCase() == "ups") {
-            var tracking_number = '<p style="display:inline-block;color: blue;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums='+master_tracking_number+'">'+master_tracking_number+'</a><hr>'
+            var tracking_number = '<p style="display:inline-block;color: blue;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=' + master_tracking_number + '">' + master_tracking_number + '</a><hr>'
         }
         if (data.data[0].carrier.toLowerCase() == "fedex") {
-            var tracking_number = '<p style="display:inline-block;color: blue;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline;" href="http://www.fedex.com/Tracking?tracknumbers='+master_tracking_number+'">'+master_tracking_number+'</a><hr>'
+            var tracking_number = '<p style="display:inline-block;color: blue;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline;" href="http://www.fedex.com/Tracking?tracknumbers=' + master_tracking_number + '">' + master_tracking_number + '</a><hr>'
         }
     }
 
- 
+
     var card =
         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
@@ -230,8 +261,8 @@ function appendShippingInformation(data) {
         + shipmethod
         + shipdate
         + custbody_lp_shipping_arrival_date
-        + shippingcost 
-        + tracking_number+
+        + shippingcost
+        + tracking_number +
         '</div>\
         </div>\
     </div>\
@@ -249,7 +280,7 @@ function appendStatus(data) {
     var custbody_lp_approval_request = "";
 
     if (valuePresent(data.data[0].custbody_lp_status_artwork_setup)) {
-       
+
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
                 custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> Artwork is complete</p><hr>'//dont show
@@ -344,7 +375,7 @@ function appendStatus(data) {
     };
     var status = "Order Is Pending";
 
-    if (valuePresent(data.data[0].status.text_status)) { status ='<p><b>Status: </b>' + data.data[0].status.text_status+ '</p> <hr>' };
+    if (valuePresent(data.data[0].status.text_status)) { status = '<p><b>Status: </b>' + data.data[0].status.text_status + '</p> <hr>' };
 
     var card =
         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
@@ -358,7 +389,7 @@ function appendStatus(data) {
         </div>\
         <div class="extra content">\
             <div class="description">'
-        + status 
+        + status
         + custbody_lp_status_stock
         + custbody_lp_status_artwork_setup
         + custbody_lp_status_payment
