@@ -69,8 +69,8 @@ function is_valid_input(input) {
     
     var validating_input_length = validating_input.length;
     console.log(validating_input_length)
-
-    if (validating_input_length == 7 & validating_input.match(match_number)) {
+    & validating_input.match(match_number)
+    if (validating_input_length == 7 ) {
         return true;
     } else return false;
 }
