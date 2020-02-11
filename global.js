@@ -315,7 +315,7 @@ function appendStatus(data) {
     };
     var status = "Order Is Pending";
 
-    if (valuePresent(data.data[0].status.text_status)) { status = data.data[0].status.text_status };
+    if (valuePresent(data.data[0].status.text_status)) { status ='<p><b>Status:</b>' + data.data[0].status.text_status+ '</p> <hr>' };
 
     var card =
         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
@@ -330,6 +330,7 @@ function appendStatus(data) {
         </div>\
         <div class="extra content">\
             <div class="description">'
+
         + custbody_lp_status_stock
         + custbody_lp_status_artwork_setup
         + custbody_lp_status_payment
@@ -343,27 +344,3 @@ function appendStatus(data) {
     return card;
 };
 
-function status(data) {
-    var status = "Order Is Pending";
-
-    if (valuePresent(data.data[0].status.text_status)) { status = data.data[0].status.text_status };
-    var card =
-        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-    <div class="content">\
-        <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
-        <div class="header">\
-            Status\
-        </div>\
-        <div class="meta">\
-            <br>\
-        </div>\
-        <div class="extra content">\
-            <div class="description">'
-        + status +
-        '</div>\
-        </div>\
-    </div>\
-    <div class="extra content"></div>\
-</div>'
-    return card;
-};
