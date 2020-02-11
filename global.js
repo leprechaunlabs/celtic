@@ -248,7 +248,7 @@ function appendStatus(data) {
         //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
         switch (data.data[0].custbody_lp_status_stock) {
             case "1":
-                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p> style="display:inline;" We have the stock to fulfill your order.</p><hr>'//dont show
+                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p style="display:inline;"> We have the stock to fulfill your order.</p><hr>'//dont show
                 break;
             case "2":
                 custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p style="display:inline;"> We have unresolved stock issues.</p><hr>'
