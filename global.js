@@ -315,7 +315,7 @@ function appendStatus(data) {
     };
     var status = "Order Is Pending";
 
-    if (valuePresent(data.data[0].status.text_status)) { status ='<p><b>Status:</b>' + data.data[0].status.text_status+ '</p> <hr>' };
+    if (valuePresent(data.data[0].status.text_status)) { status ='<p><b>Status: </b>' + data.data[0].status.text_status+ '</p> <hr>' };
 
     var card =
         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
