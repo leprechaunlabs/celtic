@@ -20,7 +20,9 @@ $("#button-order-status-modal").click(function () {
                 $("#loader").empty();
                 var appending = [appendOrderNumbers(data), /*appendCostSummary(data),*/ appendShippingInformation(data), appendStatus(data)];
                 appending.forEach(element => $(".horizontalCards").append(element));
-            } else { no_data_card() }
+            } else { no_data_card(); 
+                $("#loader").empty(); 
+            }
 
         });
     }
