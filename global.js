@@ -26,7 +26,7 @@ $("#button-order-status-modal").click(function () {
 
 });
 function is_valid_input(input){
-  var validating_input = input.replace(/"-"/g,"").replace(/" "/g, "");
+  var validating_input = input.replace(/-/g,"").replace(/" "/g, "");
   var validating_input_length = validating_input.length;
   if(validating_input_length!==7){
       return false;
