@@ -2,6 +2,8 @@ var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/sc
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
+    var input = document.getElementById('input-job-number').value;
+   if(is_valid_input(input)){
     $(".horizontalCards").empty();
     $("#loader").empty();
     $("#header_modal").empty();
@@ -18,7 +20,18 @@ $("#button-order-status-modal").click(function () {
         var appending = [appendOrderNumbers(data), /*appendCostSummary(data),*/ appendShippingInformation(data), appendStatus(data)];
         appending.forEach(element => $(".horizontalCards").append(element));
     });
+   }
+   else {alert("You Entered Order Number "+input+" This Is Incorrect.")}
+   
+
 });
+function is_valid_input(input){
+  var validating_input = input.replace(/"-"/g,"").replace(/" "/g, "");
+  var validating_input_length = validating_input.length;
+  if(validating_input_length!==7){
+      return false;
+  }else return true;
+}
 
 function entity(data) {
     var entity = "";
