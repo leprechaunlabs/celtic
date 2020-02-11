@@ -15,7 +15,7 @@ $("#button-order-status-modal").click(function () {
         $(".horizontalCards").empty();
         document.getElementById('input-job-number').value = "";
         $("#loader").empty();
-        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data), status(data)];
+        var appending = [appendOrderNumbers(data), appendCostSummary(data), appendShippingInformation(data), appendStatus(data)];
         appending.forEach(element => $(".horizontalCards").append(element));
     });
 });
