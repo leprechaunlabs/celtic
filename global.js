@@ -308,11 +308,14 @@ function appendStatus(data) {
 
     if (valuePresent(data.data[0].custbody_lp_approval_request)) {
         custbody_lp_approval_request =
-            '<p style="display:inline-block;padding-right:10px;">Approval Link: </p>\<div class="positive ui button">\
+            '<p style="display:inline-block;padding-right:10px;"><b>Approval Link:</b> </p>\<div class="positive ui button">\
                 <a style="color: white;"; href="'+ data.data[0].custbody_lp_approval_request + '">Art Approval Request</a>\
              </div>\
         <hr>'
     };
+    var status = "Order Is Pending";
+
+    if (valuePresent(data.data[0].status.text_status)) { status = data.data[0].status.text_status };
 
     var card =
         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
@@ -321,8 +324,9 @@ function appendStatus(data) {
         <div class="header">\
             Order Status\
         </div>\
-        <div class="meta">\
-            <br>\
+        <div class="meta">'
+        + status +
+            '<br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
