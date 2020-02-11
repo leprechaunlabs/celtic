@@ -69,7 +69,7 @@ function appendOrderNumbers(data) {
         tranid = '<p><b>Order Number:</b> ' + data.data[0].tranid + '</p><hr>'
     }
     if (valuePresent(data.data[0].otherrefnum)) {
-        otherrefnum = '<p><b>PO Number:</b>' + data.data[0].otherrefnum + '</p><hr>'
+        otherrefnum = '<p><b>PO Number:</b> ' + data.data[0].otherrefnum + '</p><hr>'
     }
     if (valuePresent(data.data[0].saleseffectivedate)) {
         saleseffectivedate = '<p><b>Order Date:</b> ' + data.data[0].saleseffectivedate + '</p><hr>'
@@ -154,6 +154,7 @@ function appendShippingInformation(data) {
     var shipdate = "";
     var custbody_lp_shipping_arrival_date = "";
     var shippingcost = "";
+    var tracking_number = "";
 
     if (valuePresent(data.data[0].shipaddress)) {
         var address = data.data[0].shipaddress.replace(/\n/g, '<br>')
@@ -183,8 +184,17 @@ function appendShippingInformation(data) {
     if (valuePresent(data.data[0].shippingcost)) {
         shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
     }
+    if (valuePresent(data.data[0].linkedtrakingnumbers)) {
+        tracking_number = '<p><b>Tracking Number:</b> ' + data.data[0].linkedtrakingnumbers + '</p> <hr>'
+        if (data.data[0].carrier.toLowerCase() == "ups") {
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums="'+data.data[0].linkedtrakingnumbers+'>'+data.data[0].linkedtrakingnumbers+'</a><hr>'
+        }
+        if (data.data[0].carrier.toLowerCase() == "fedex") {
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href=" http://www.fedex.com/Tracking?tracknumbers="'+data.data[0].linkedtrakingnumbers+'>'+data.data[0].linkedtrakingnumbers+'</a><hr>'
+        }
+    }
 
-
+ 
     var card =
         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
     <div class="content">\
@@ -202,7 +212,8 @@ function appendShippingInformation(data) {
         + shipmethod
         + shipdate
         + custbody_lp_shipping_arrival_date
-        + shippingcost +
+        + shippingcost 
+        + tracking_number+
         '</div>\
         </div>\
     </div>\

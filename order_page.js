@@ -145,3 +145,6 @@ function appendItemInformation(data) {
 </div>';
     return card;
 };
+
+
+
