@@ -59,7 +59,7 @@ function no_data_card() {
 
 
 function is_valid_input(input) {
-    var match_number = /^[0-9]+$/g;
+    var match_number = /^[0-9]$/g;
 
     var validating_input = input.replace(/-/g, "").replace();
     console.log(validating_input)
