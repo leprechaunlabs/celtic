@@ -324,13 +324,12 @@ function appendStatus(data) {
         <div class="header">\
             Order Status\
         </div>\
-        <div class="meta">'
-        + status +
-            '<br>\
+        <div class="meta">\
+            <br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
-
+        + status 
         + custbody_lp_status_stock
         + custbody_lp_status_artwork_setup
         + custbody_lp_status_payment
