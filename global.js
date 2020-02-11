@@ -187,10 +187,10 @@ function appendShippingInformation(data) {
     if (valuePresent(data.data[0].linkedtrackingnumbers)) {
         tracking_number = '<p><b>Tracking Number:</b> ' + data.data[0].linkedtrackingnumbers + '</p> <hr>'
         if (data.data[0].carrier.toLowerCase() == "ups") {
-            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums="'+data.data[0].linkedtrackingnumbers+'>'+data.data[0].linkedtrackingnumbers+'</a><hr>'
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums='+data.data[0].linkedtrackingnumbers+'">'+data.data[0].linkedtrackingnumbers+'</a><hr>'
         }
         if (data.data[0].carrier.toLowerCase() == "fedex") {
-            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href=" http://www.fedex.com/Tracking?tracknumbers="'+data.data[0].linkedtrackingnumbers+'>'+data.data[0].linkedtrackingnumbers+'</a><hr>'
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a style="display:inline;" href="http://www.fedex.com/Tracking?tracknumbers='+data.data[0].linkedtrackingnumbers+'">'+data.data[0].linkedtrackingnumbers+'</a><hr>'
         }
     }
 
