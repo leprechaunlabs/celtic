@@ -97,6 +97,7 @@ function jobNumberOBJ() {
     jobNumberInput1 = jobNumberInput.substring(0, 2);
     jobNumberInput2 = jobNumberInput.substring(2, jobNumberInput.length-1);
     jobNumberInput = jobNumberInput1+'-'+jobNumberInput2;
+    console.log(jobNumberInput);
     let jobNumber = {
         jobNumber: jobNumberInput
     };
