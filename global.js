@@ -26,9 +26,15 @@ $("#button-order-status-modal").click(function () {
 
         });
     }
-    else { alert("You Entered Order Number " + input + " This Is Incorrect.") }
-
-
+    else { 
+        
+        <div class="ui active modal"></div>
+        
+        $('.mini.inverted.modal')
+    .modal({
+       inverted: true
+    })
+    .modal('show'); }
 });
 
 function no_data_card() {
