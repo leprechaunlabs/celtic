@@ -28,7 +28,7 @@ $("#button-order-status-modal").click(function () {
     }
     else { 
         
-        <div class="ui active modal"></div>
+   
         
         $('.mini.inverted.modal')
     .modal({
