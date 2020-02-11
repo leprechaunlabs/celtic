@@ -330,7 +330,7 @@ function appendStatus(data) {
         </div>\
         <div class="extra content">\
             <div class="description">'
-        + status 
+        //+ status 
         + custbody_lp_status_stock
         + custbody_lp_status_artwork_setup
         + custbody_lp_status_payment
