@@ -223,22 +223,22 @@ function appendStatus(data) {
         //1 completed 2 processing 3 revisiong 4 issue 5 transferred 6 pending transfer
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_artwork_setup = '<p><b>Artwork Status:</b></p><p> Artwork is complete</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p> Artwork is complete</p><hr>'//dont show
                 break;
             case "2":
-                custbody_lp_status_artwork_setup = '<p><b>Artwork Status:</b></p><p> Artwork being processed</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p> Artwork being processed</p><hr>'//dont show
                 break;
             case "3":
-                custbody_lp_status_artwork_setup = '<p><b>Artwork Status:</b></p><p> ArtWork being revised</p><hr>'
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p> ArtWork being revised</p><hr>'
                 break;
             case "4":
-                custbody_lp_status_artwork_setup = '<p><b>Artwork Status:</b></p><p> Artwork issues</p><hr>'
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p> Artwork issues</p><hr>'
                 break;
             case "5":
-                custbody_lp_status_artwork_setup = '<p><b>Artwork Status:</b></p><p> transferred</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p> transferred</p><hr>'//dont show
                 break;
             case "6":
-                custbody_lp_status_artwork_setup = '<p><b>Artwork Status:</b></p><p> pending transfer</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p> pending transfer</p><hr>'//dont show
                 break;
             default:
         };
@@ -248,13 +248,13 @@ function appendStatus(data) {
         //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
         switch (data.data[0].custbody_lp_status_stock) {
             case "1":
-                custbody_lp_status_stock = '<p><b>Stock Status:</b></p> <p> We have the stock to fulfill your order.</p><hr>'//dont show
+                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p> We have the stock to fulfill your order.</p><hr>'//dont show
                 break;
             case "2":
-                custbody_lp_status_stock = '<p><b>Stock Status:</b></p> <p> We have unresolved stock issues.</p><hr>'
+                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p> We have unresolved stock issues.</p><hr>'
                 break;
             case "3":
-                custbody_lp_status_stock = '<p><b>Stock Status:</b></p> <p> We have resolved stock issues</p><hr>'//dont show
+                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p> We have resolved stock issues</p><hr>'//dont show
                 break;
             default:
         };
@@ -264,25 +264,25 @@ function appendStatus(data) {
         //1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no entity 7 credit card
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_payment = '<p><b>Payment Status:</b></p> <p> Net Terms</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> Net Terms</p><hr>'
                 break;
             case "2":
-                custbody_lp_status_payment = '<p><b>Payment Status:</b></p> <p> On File</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> On File</p><hr>'
                 break;
             case "3":
-                custbody_lp_status_payment = '<p><b>Payment Status:</b></p> <p> Received</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> Received</p><hr>'
                 break;
             case "4":
-                custbody_lp_status_payment = '<p><b>Payment Status:</b></p> <p> Pending Request</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> Pending Request</p><hr>'
                 break;
             case "5":
-                custbody_lp_status_payment = '<p><b>Payment Status:</b></p> <p> Pending Response</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> Pending Response</p><hr>'
                 break;
             case "6":
-                custbody_lp_status_payment = '<p><b>Payment Status:</b></p> <p> No entity</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> No entity</p><hr>'
                 break;
             case "7":
-                custbody_lp_status_payment = '<p><b>Payment Status:</b></p> <p> Credit Card</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> Credit Card</p><hr>'
                 break;
             default:
         };
@@ -291,16 +291,16 @@ function appendStatus(data) {
         //1 approved 2 revision requsted 3 pending request 4 pending response
         switch (data.data[0].custbody_lp_status_approval_request) {
             case "1":
-                custbody_lp_status_approval_request = '<p><b>Approval Status:</b></p><p> Approved</p><hr>' //dont show
+                custbody_lp_status_approval_request = '<p style="display:inline-block;"><b>Approval Status:</b></p><p> Approved</p><hr>' //dont show
                 break;
             case "2":
-                custbody_lp_status_approval_request = '<p><b>Approval Status:</b></p><p> Revision Requested</p><hr>'
+                custbody_lp_status_approval_request = '<p style="display:inline-block;"><b>Approval Status:</b></p><p> Revision Requested</p><hr>'
                 break;
             case "3":
-                custbody_lp_status_approval_request = '<p><b>Approval Status:</b></p> <p> Pending Request</p><hr>'
+                custbody_lp_status_approval_request = '<p style="display:inline-block;"><b>Approval Status:</b></p> <p> Pending Request</p><hr>'
                 break;
             case "4":
-                custbody_lp_status_approval_request = '<p><b>Approval Status:</b></p> <p>Pending Response</p><hr>'
+                custbody_lp_status_approval_request = '<p style="display:inline-block;"><b>Approval Status:</b></p> <p>Pending Response</p><hr>'
                 break;
             default:
         };
