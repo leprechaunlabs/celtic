@@ -61,7 +61,7 @@ function no_data_card() {
 function is_valid_input(input) {
     var match_number = /^[0-9]*$/g;
 
-    var validating_input = input.replace(/-/g, "").replace();
+    var validating_input = input.replace(/-/g, "");
     console.log(validating_input)
 
     validating_input = validating_input.replace(/ /g, "")
@@ -91,8 +91,11 @@ function entity(data) {
 // }, false);
 
 function jobNumberOBJ() {
+    var jobNumberInput = document.getElementById("input-job-number").value;
+    jobNumberInput = jobNumberInput.replace(/-/g, "").replace(/ /g, "").splice(2, 0, '-');
+
     let jobNumber = {
-        jobNumber: document.getElementById("input-job-number").value
+        jobNumber: jobNumberInput
     };
     return jobNumber;
 };
