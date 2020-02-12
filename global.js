@@ -253,10 +253,10 @@ function appendShippingInformation(data) {
         tracking_number = '<p><b>Tracking Number:</b> ' + master_tracking_number + '</p> <hr>'
 
         if (data.data[0].carrier.toLowerCase() == "ups") {
-            var tracking_number = '<p style="display:inline-block;color: blue;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=' + master_tracking_number + '">' + master_tracking_number + '</a><hr>'
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline; color: blue;" href="http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=' + master_tracking_number + '">' + master_tracking_number + '</a><hr>'
         }
         if (data.data[0].carrier.toLowerCase() == "fedex") {
-            var tracking_number = '<p style="display:inline-block;color: blue;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline;" href="http://www.fedex.com/Tracking?tracknumbers=' + master_tracking_number + '">' + master_tracking_number + '</a><hr>'
+            var tracking_number = '<p style="display:inline-block;"><b>Tracking Number link: </b></p> <a target="_blank" style="display:inline; color: blue;" href="http://www.fedex.com/Tracking?tracknumbers=' + master_tracking_number + '">' + master_tracking_number + '</a><hr>'
         }
     }
 
