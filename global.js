@@ -38,7 +38,7 @@ function no_data_card() {
     var card =
         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
         <div class="content">\
-            <i class="list alternate outline icon right floated" style="font-size: 1.9em;"></i>\
+            <i class="exclamation circle icon right floated" style="font-size: 1.9em;"></i>\
             <div class="header">\
             Order Number Not Found\
             </div>\
