@@ -27,10 +27,7 @@ $("#button-order-status-modal").click(function () {
         });
     }
     else { 
-        
-   
-        
-        $('.mini.inverted.modal')
+        $('.mini.basic.modal')
     .modal({
        inverted: true
     })
