@@ -1,6 +1,9 @@
 var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=391&deploy=1&compid=4976131_SB1&h=bc0412cde19c51afd168";
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
+$('.fullscreen.modal')
+  .modal('show');
+
 $("#button-order-status-modal").click(function () {
     var input = document.getElementById('input-job-number').value;
     if (is_valid_input(input)) {
@@ -9,7 +12,7 @@ $("#button-order-status-modal").click(function () {
         $("#header_modal").empty();
         $("#loader").append(
             '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
-        $('.ui.modal')
+            $('.fullscreen.modal')
             .modal('show');
         $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
             console.log(data);
