@@ -27,9 +27,12 @@ $("#button-order-status-modal").click(function () {
         });
     }
     else { 
-        $('.mini.modal')
-        .modal('show')
-      ; }
+        $('.mini.inverted.modal')
+  .modal({
+     inverted: true
+  })
+  .modal('show')
+;}
 });
 
 function no_data_card() {
