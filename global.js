@@ -27,12 +27,9 @@ $("#button-order-status-modal").click(function () {
         });
     }
     else { 
-        $('.mini.inverted.modal')
-  .modal({
-     inverted: true
-  })
-  .modal('show')
-;}
+        $('.mini.modal')
+        .modal('show')
+      ; }
 });
 
 function no_data_card() {
