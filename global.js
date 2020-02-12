@@ -233,7 +233,7 @@ function appendStatus(data) {
 
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p> <i class="circle outline icon" style="color: green;"></i></i><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p> <i class="check circle outline icon" style="color: green;"></i></i><hr>'//dont show
                 break;
             case "2":
                 custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> Artwork being processed</p><hr>'//dont show
