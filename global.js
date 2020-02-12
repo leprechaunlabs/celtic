@@ -1,9 +1,6 @@
 var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=391&deploy=1&compid=4976131_SB1&h=bc0412cde19c51afd168";
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
-$('.fullscreen.modal')
-  .modal('show');
-
 $("#button-order-status-modal").click(function () {
     var input = document.getElementById('input-job-number').value;
     if (is_valid_input(input)) {
