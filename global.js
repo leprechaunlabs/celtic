@@ -7,9 +7,8 @@ $("#button-order-status-modal").click(function () {
         $(".horizontalCards").empty();
         $("#loader").empty();
         $("#header_modal").empty();
-        $("#loader").append(
-            '<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
-            $('.fullscreen.modal')
+        $("#loader").append('<div class="ui segment"><div class="ui active dimmer" style="height:400px;"><div class="ui massive text loader">Loading</div></div><p></p><p></p><p></p></div>');
+        $('.fullscreen.modal')
             .modal('show');
         $.getJSON(corsHerokuURL + netsuiteURL, jobNumberOBJ(), function (data, textStatus, jqXHR) {
             console.log(data);
@@ -20,58 +19,28 @@ $("#button-order-status-modal").click(function () {
                 $("#loader").empty();
                 var appending = [appendOrderNumbers(data), /*appendCostSummary(data),*/ appendShippingInformation(data), appendStatus(data)];
                 appending.forEach(element => $(".horizontalCards").append(element));
-            } else { no_data_card(); 
-                $("#loader").empty(); 
+            } else {
+                no_data_card();
+                $("#loader").empty();
             }
-
         });
     }
-    else { 
-        $('.mini.modal')
-        .modal('show')
-      ; }
+    else {
+        $('.mini.modal').modal('show');
+    }
 });
 
-function no_data_card() {
-   var message = "<p>We apologize for the inconvenience, but we can't find your order number.</p>";
-   var contact = "<p>Please contact Leprechaun Promotions. </p>";
-    var card =
-        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-        <div class="content">\
-            <i class="exclamation circle icon right floated" style="font-size: 1.9em;"></i>\
-            <div class="header">\
-            Order Number Not Found\
-            </div>\
-            <div class="meta">\
-                <br>\
-            </div>\
-            <div class="extra content">\
-                <div class="description">'
-                +message
-                +contact+
-            '</div>\
-            </div>\
-        </div>\
-        <div class="extra content">\
-        </div>\
-    </div>';
-    $(".horizontalCards").append(card);
+function buildOrderStatusURL(jobNumber) {
+    var builtURL = "https://www.distributorcentral.com/preview/DD6F3DD9-FD1B-4041-80EE-A1B8342A5240/p/order-status?jobNumber=" + jobNumber;
+    return builtURL;
 };
-
 
 function is_valid_input(input) {
     var match_number = /^[0-9]*$/g;
-
     var validating_input = input.replace(/-/g, "");
-    console.log(validating_input)
-
     validating_input = validating_input.replace(/ /g, "")
-    console.log(validating_input)
-    
     var validating_input_length = validating_input.length;
-    console.log(validating_input_length)
-     
-    if (validating_input_length == 7 && validating_input.match(match_number) ) {
+    if (validating_input_length == 7 && validating_input.match(match_number)) {
         return true;
     } else return false;
 }
@@ -85,19 +54,13 @@ function entity(data) {
     return entity;
 };
 
-// document.querySelector("#button-order-status-page").addEventListener("click", function (event) {
-//     var jobNumber = document.getElementById("input-job-number").value
-//     window.location.href = buildOrderStatusURL(jobNumber);
-//     event.preventDefault();
-// }, false);
-
 function jobNumberOBJ() {
     var jobNumberInput = document.getElementById("input-job-number").value;
     jobNumberInput = jobNumberInput.replace(/-/g, "");
     jobNumberInput = jobNumberInput.replace(/ /g, "");
     jobNumberInput1 = jobNumberInput.substring(0, 2);
     jobNumberInput2 = jobNumberInput.substring(2, jobNumberInput.length);
-    jobNumberInput = jobNumberInput1+'-'+jobNumberInput2;
+    jobNumberInput = jobNumberInput1 + '-' + jobNumberInput2;
     console.log(jobNumberInput);
     let jobNumber = {
         jobNumber: jobNumberInput
@@ -105,16 +68,38 @@ function jobNumberOBJ() {
     return jobNumber;
 };
 
-function buildOrderStatusURL(jobNumber) {
-    var builtURL = "https://www.distributorcentral.com/preview/DD6F3DD9-FD1B-4041-80EE-A1B8342A5240/p/order-status?jobNumber=" + jobNumber;
-    return builtURL;
-};
 function valuePresent(field) {
     if (field == "" || field == null) {
         return false;
     }
     return true;
 }
+
+function no_data_card() {
+    var message = "<p>We apologize for the inconvenience, but we can't find your order number.</p>";
+    var contact = "<p>Please contact Leprechaun Promotions. </p>";
+    var card =
+        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+         <div class="content">\
+             <i class="exclamation circle icon right floated" style="font-size: 1.9em;"></i>\
+             <div class="header">\
+             Order Number Not Found\
+             </div>\
+             <div class="meta">\
+                 <br>\
+             </div>\
+             <div class="extra content">\
+                 <div class="description">'
+        + message
+        + contact +
+        '</div>\
+             </div>\
+         </div>\
+         <div class="extra content">\
+         </div>\
+     </div>';
+    $(".horizontalCards").append(card);
+};
 
 function appendOrderNumbers(data) {
     var entity = "";
@@ -162,54 +147,6 @@ function appendOrderNumbers(data) {
     return card;
 };
 
-// function appendCostSummary(data) {
-//     var subtotal = "";
-//     var taxtotal = "";
-//     var shippingcost = "";
-//     var handlingcost = "";
-//     var total = "";
-
-//     if (valuePresent(data.data[0].subtotal)) {
-//         subtotal = '<p><b>Subtotal:</b> $' + data.data[0].subtotal + '</p> <hr>'
-//     }
-//     if (valuePresent(data.data[0].taxtotal)) {
-//         taxtotal = '<p><b>Tax Total:</b> $' + data.data[0].taxtotal + '</p> <hr>'
-//     }
-//     if (valuePresent(data.data[0].shippingcost)) {
-//         shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
-//     }
-//     if (valuePresent(data.data[0].handlingcost)) {
-//         handlingcost = '<p><b>Handling Cost:</b> $' + data.data[0].handlingcost + '</p> <hr>'
-//     }
-//     if (valuePresent(data.data[0].total)) {
-//         total = '<p><b>Total:</b> $' + data.data[0].total + '</p> <hr>'
-//     }
-//     var card =
-//         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-//     <div class="content">\
-//         <i class="dollar sign icon right floated" style="font-size: 1.9em;"></i>\
-//         <div class="header">\
-//         Cost Summary\
-//         </div>\
-//         <div class="meta">\
-//             <br>\
-//         </div>\
-//         <div class="extra content">\
-//             <div class="description">'
-//         + subtotal
-//         + taxtotal
-//         + shippingcost
-//         + handlingcost
-//         + total +
-//         '</div>\
-//         </div>\
-//     </div>\
-//     <div class="extra content">\
-//     </div>\
-// </div>';
-//     return card;
-// };
-
 function appendShippingInformation(data) {
     var shipaddress = "";
     var carrier = "";
@@ -225,16 +162,16 @@ function appendShippingInformation(data) {
     }
     if (valuePresent(data.data[0].carrier)) {
         if (data.data[0].carrier.toLowerCase() == "ups") {
-            var carrier = '<p><b>Shipping Carrier:</b> <i  style="font-size: 2.5em;" class="ups icon"></i> </p>  <hr> '
+            var carrier = '<p><b>Shipping Carrier:</b> <i  style="font-size: 2.5em;" class="ups icon"></i></p> <hr> '
         }
         else if (data.data[0].carrier.toLowerCase() == "fedex") {
-            var carrier = '<p style="display:inline"><b> Shipping Carrier:</b> </p> <i style="font-size: 2.5em;" class="fedex icon"></i> <hr>'
+            var carrier = '<p style="display:inline"><b> Shipping Carrier:</b> </p> <i style="font-size: 2.5em;" class="fedex icon"></i><hr>'
         }
         else {
             var carrier = '<p><b>Shipping Carrier:</b> ' + data.data[0].carrier + '</p><hr> '
         }
-
     }
+
     if (valuePresent(data.data[0].shipmethod)) {
         shipmethod = '<p><b>Shipping Method:</b> ' + data.data[0].shipmethod + '</p> <hr>'
     }
@@ -260,31 +197,27 @@ function appendShippingInformation(data) {
         }
     }
 
-
     var card =
-        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-    <div class="content">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+        <div class="content">\
         <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
-        <div class="header">\
-            Shipping Information\
-        </div>\
+        <div class="header">Shipping Information</div>\
         <div class="meta">\
             <br>\
         </div>\
         <div class="extra content">\
             <div class="description">'
-        + shipaddress
-        + carrier
-        + shipmethod
-        + shipdate
-        + custbody_lp_shipping_arrival_date
-        + shippingcost
-        + tracking_number +
-        '</div>\
+                + shipaddress
+                + carrier
+                + shipmethod
+                + shipdate
+                + custbody_lp_shipping_arrival_date
+                + shippingcost
+                + tracking_number +
+            '</div>\
         </div>\
-    </div>\
-    <div class="extra content">\
-    </div>\
+        </div>\
+        <div class="extra content"></div>\
 </div>'
     return card;
 };
@@ -300,7 +233,7 @@ function appendStatus(data) {
 
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> Artwork is complete</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p> <i class="circle outline icon" style="color: green;"></i></i><hr>'//dont show
                 break;
             case "2":
                 custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> Artwork being processed</p><hr>'//dont show
@@ -395,28 +328,83 @@ function appendStatus(data) {
     if (valuePresent(data.data[0].status.text_status)) { status = '<p><b>Status: </b>' + data.data[0].status.text_status + '</p> <hr>' };
 
     var card =
-        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-    <div class="content">\
+    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+        <div class="content">\
         <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
-        <div class="header">\
-            Order Status\
-        </div>\
-        <div class="meta">\
-            <br>\
-        </div>\
+        <div class="header">Order Status</div>\
+        <div class="meta"><br></div>\
         <div class="extra content">\
             <div class="description">'
-        + status
-        + custbody_lp_status_stock
-        + custbody_lp_status_artwork_setup
-        + custbody_lp_status_payment
-        + custbody_lp_status_approval_request
-        + custbody_lp_approval_request +
-        '</div>\
+                + status
+                + custbody_lp_status_stock
+                + custbody_lp_status_artwork_setup
+                + custbody_lp_status_payment
+                + custbody_lp_status_approval_request
+                + custbody_lp_approval_request +
+            '</div>\
         </div>\
-    </div>\
-    <div class="extra content"></div>\
-</div>'
+        </div>\
+        <div class="extra content"></div>\
+    </div>'
     return card;
 };
 
+
+
+
+
+
+// document.querySelector("#button-order-status-page").addEventListener("click", function (event) {
+//     var jobNumber = document.getElementById("input-job-number").value
+//     window.location.href = buildOrderStatusURL(jobNumber);
+//     event.preventDefault();
+// }, false);
+
+
+// function appendCostSummary(data) {
+//     var subtotal = "";
+//     var taxtotal = "";
+//     var shippingcost = "";
+//     var handlingcost = "";
+//     var total = "";
+
+//     if (valuePresent(data.data[0].subtotal)) {
+//         subtotal = '<p><b>Subtotal:</b> $' + data.data[0].subtotal + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].taxtotal)) {
+//         taxtotal = '<p><b>Tax Total:</b> $' + data.data[0].taxtotal + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].shippingcost)) {
+//         shippingcost = '<p><b>Estimated Shipping Cost:</b> $' + data.data[0].shippingcost + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].handlingcost)) {
+//         handlingcost = '<p><b>Handling Cost:</b> $' + data.data[0].handlingcost + '</p> <hr>'
+//     }
+//     if (valuePresent(data.data[0].total)) {
+//         total = '<p><b>Total:</b> $' + data.data[0].total + '</p> <hr>'
+//     }
+//     var card =
+//         '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+//     <div class="content">\
+//         <i class="dollar sign icon right floated" style="font-size: 1.9em;"></i>\
+//         <div class="header">\
+//         Cost Summary\
+//         </div>\
+//         <div class="meta">\
+//             <br>\
+//         </div>\
+//         <div class="extra content">\
+//             <div class="description">'
+//         + subtotal
+//         + taxtotal
+//         + shippingcost
+//         + handlingcost
+//         + total +
+//         '</div>\
+//         </div>\
+//     </div>\
+//     <div class="extra content">\
+//     </div>\
+// </div>';
+//     return card;
+// };
