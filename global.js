@@ -1,4 +1,5 @@
 var netsuiteURL = "https://4976131-sb1.extforms.netsuite.com/app/site/hosting/scriptlet.nl?script=391&deploy=1&compid=4976131_SB1&h=bc0412cde19c51afd168";
+
 var corsHerokuURL = "https://cors-anywhere.herokuapp.com/";
 
 $("#button-order-status-modal").click(function () {
@@ -24,8 +25,7 @@ $("#button-order-status-modal").click(function () {
                 $("#loader").empty();
             }
         });
-    }
-    else {
+    } else {
         $('.mini.modal').modal('show');
     }
 });
@@ -163,11 +163,9 @@ function appendShippingInformation(data) {
     if (valuePresent(data.data[0].carrier)) {
         if (data.data[0].carrier.toLowerCase() == "ups") {
             var carrier = '<p><b>Shipping Carrier:</b> <i  style="font-size: 2.5em;" class="ups icon"></i></p> <hr> '
-        }
-        else if (data.data[0].carrier.toLowerCase() == "fedex") {
+        } else if (data.data[0].carrier.toLowerCase() == "fedex") {
             var carrier = '<p style="display:inline"><b> Shipping Carrier:</b> </p> <i style="font-size: 2.5em;" class="fedex icon"></i><hr>'
-        }
-        else {
+        } else {
             var carrier = '<p><b>Shipping Carrier:</b> ' + data.data[0].carrier + '</p><hr> '
         }
     }
@@ -198,26 +196,26 @@ function appendShippingInformation(data) {
     }
 
     var card =
-    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-        <div class="content">\
-        <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
-        <div class="header">Shipping Information</div>\
-        <div class="meta">\
-            <br>\
-        </div>\
-        <div class="extra content">\
-            <div class="description">'
-                + shipaddress
-                + carrier
-                + shipmethod
-                + shipdate
-                + custbody_lp_shipping_arrival_date
-                + shippingcost
-                + tracking_number +
-            '</div>\
-        </div>\
-        </div>\
-        <div class="extra content"></div>\
+        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+            <div class="content">\
+            <i class="shipping fast icon right floated" style="font-size: 1.9em;"></i>\
+            <div class="header">Shipping Information</div>\
+            <div class="meta">\
+                <br>\
+            </div>\
+            <div class="extra content">\
+                <div class="description">'
+        + shipaddress
+        + carrier
+        + shipmethod
+        + shipdate
+        + custbody_lp_shipping_arrival_date
+        + shippingcost
+        + tracking_number +
+        '</div>\
+    </div>\
+    </div>\
+    <div class="extra content"></div>\
 </div>'
     return card;
 };
@@ -233,16 +231,16 @@ function appendStatus(data) {
 
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p> <i class="check circle outline icon" style="color: green;"></i></i><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p> <i class="check circle outline icon" style="color: green; font-size:1.5em;"></i></i><hr>'//dont show
                 break;
             case "2":
-                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> Artwork being processed</p><hr>'//dont show
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><i class="check circle outline icon" style="color: yellow; font-size:1.5em;"></i></i><hr>'//dont show
                 break;
             case "3":
-                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> ArtWork being revised</p><hr>'
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><i class="check circle outline icon" style="color: yellow; font-size:1.5em;"></i></i><hr>'
                 break;
             case "4":
-                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> Artwork issues</p><hr>'
+                custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><i class="times circle icon" style="color: red; font-size:1.5em;"></i></i><hr>'
                 break;
             case "5":
                 custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> transferred</p><hr>'//dont show
@@ -251,39 +249,41 @@ function appendStatus(data) {
                 custbody_lp_status_artwork_setup = '<p style="display:inline-block;"><b>Artwork Status:</b></p><p style="display:inline;"> pending transfer</p><hr>'//dont show
                 break;
             default:
-        };
+        }
+        ;
     }
 
     if (valuePresent(data.data[0].custbody_lp_status_stock)) {
         //1 stock:available 2 stock:issue:unresolved 3 stock:issue resolved
         switch (data.data[0].custbody_lp_status_stock) {
             case "1":
-                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p style="display:inline;"> We have the stock to fulfill your order.</p><hr>'//dont show
+                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <i class="check circle outline icon" style="color: green; font-size:1.5em;"></i></i><hr>'//dont show
                 break;
             case "2":
-                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p style="display:inline;"> We have unresolved stock issues.</p><hr>'
+                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <i class="times circle icon" style="color: red; font-size:1.5em;"></i></i><hr>'
                 break;
             case "3":
-                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <p style="display:inline;"> We have resolved stock issues</p><hr>'//dont show
+                custbody_lp_status_stock = '<p style="display:inline-block;"><b>Stock Status:</b></p> <i class="check circle outline icon" style="color: green; font-size:1.5em;"></i></i><hr>'//dont show
                 break;
             default:
-        };
+        }
+        ;
     }
 
     if (valuePresent(data.data[0].custbody_lp_status_payment)) {
         //1 netterms 2 on file 3 received 4 pending request 5 pending response 6 no entity 7 credit card
         switch (data.data[0].custbody_lp_status_artwork_setup) {
             case "1":
-                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p style="display:inline;"> Net Terms</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p>  <i class="check circle outline icon" style="color: green; font-size:1.5em;"></i></i><hr>'
                 break;
             case "2":
-                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p style="display:inline;"> On File</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p>  <i class="check circle outline icon" style="color: green; font-size:1.5em;"></i></i><hr>'
                 break;
             case "3":
-                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p> style="display:inline;" Received</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p>  <i class="check circle outline icon" style="color: green; font-size:1.5em;"></i></i><hr>'
                 break;
             case "4":
-                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p style="display:inline;"> Pending Request</p><hr>'
+                custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <i class="check circle outline icon" style="color: yellow; font-size:1.5em;"></i></i><hr>'
                 break;
             case "5":
                 custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p style="display:inline;"> Pending Response</p><hr>'
@@ -295,7 +295,8 @@ function appendStatus(data) {
                 custbody_lp_status_payment = '<p style="display:inline-block;"><b>Payment Status:</b></p> <p style="display:inline;"> Credit Card</p><hr>'
                 break;
             default:
-        };
+        }
+        ;
     }
     if (valuePresent(data.data[0].custbody_lp_status_approval_request)) {
         //1 approved 2 revision requsted 3 pending request 4 pending response
@@ -313,45 +314,46 @@ function appendStatus(data) {
                 custbody_lp_status_approval_request = '<p style="display:inline-block;"><b>Approval Status:</b></p style="display:inline;"> <p>Pending Response</p><hr>'
                 break;
             default:
-        };
+        }
+        ;
     }
 
     if (valuePresent(data.data[0].custbody_lp_approval_request)) {
         custbody_lp_approval_request =
             '<p style="display:inline-block;padding-right:10px;"><b>Approval Link:</b> </p>\<div class="positive ui button">\
-                <a target="_blank" style="color: white;"; href="'+ data.data[0].custbody_lp_approval_request + '">Art Approval Request</a>\
+                <a target="_blank" style="color: white;"; href="' + data.data[0].custbody_lp_approval_request + '">Art Approval Request</a>\
              </div>\
         <hr>'
-    };
+    }
+    ;
     var status = "Order Is Pending";
 
-    if (valuePresent(data.data[0].status.text_status)) { status = '<p><b>Status: </b>' + data.data[0].status.text_status + '</p> <hr>' };
+    if (valuePresent(data.data[0].status.text_status)) {
+        status = '<p><b>Status: </b>' + data.data[0].status.text_status + '</p> <hr>'
+    }
+    ;
 
     var card =
-    '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
-        <div class="content">\
-        <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
-        <div class="header">Order Status</div>\
-        <div class="meta"><br></div>\
-        <div class="extra content">\
-            <div class="description">'
-                + status
-                + custbody_lp_status_stock
-                + custbody_lp_status_artwork_setup
-                + custbody_lp_status_payment
-                + custbody_lp_status_approval_request
-                + custbody_lp_approval_request +
-            '</div>\
-        </div>\
-        </div>\
-        <div class="extra content"></div>\
-    </div>'
+        '<div class="card" style="width: 400px; font-size:1.5em; margin: 1em 1em 0.5em 1em;">\
+            <div class="content">\
+            <i class="tasks icon right floated" style="font-size: 1.9em;"></i>\
+            <div class="header">Order Status</div>\
+            <div class="meta"><br></div>\
+            <div class="extra content">\
+                <div class="description">'
+        + status
+        + custbody_lp_status_stock
+        + custbody_lp_status_artwork_setup
+        + custbody_lp_status_payment
+        + custbody_lp_status_approval_request
+        + custbody_lp_approval_request +
+        '</div>\
+    </div>\
+    </div>\
+    <div class="extra content"></div>\
+</div>'
     return card;
 };
-
-
-
-
 
 
 // document.querySelector("#button-order-status-page").addEventListener("click", function (event) {
